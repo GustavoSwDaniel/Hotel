@@ -1,0 +1,11 @@
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\sistemaHoteleiro.exe.config
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\sistemaHoteleiro.exe
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\sistemaHoteleiro.pdb
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.csprojAssemblyReference.cache
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.Properties.Resources.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.csproj.GenerateResource.cache
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.csproj.CoreCompileInputs.cache
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.exe
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.pdb
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.Login.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.Hotel.resources
