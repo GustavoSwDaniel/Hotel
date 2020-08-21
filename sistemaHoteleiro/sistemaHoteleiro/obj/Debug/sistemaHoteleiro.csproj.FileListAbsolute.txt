@@ -9,3 +9,7 @@ C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.pdb
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.Login.resources
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.Hotel.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\MetroFramework.dll
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.csproj.CopyComplete
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.Recurprar_senha.resources

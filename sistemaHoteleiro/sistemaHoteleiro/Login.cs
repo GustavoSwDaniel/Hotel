@@ -10,9 +10,12 @@ using System.Windows.Forms;
 
 namespace sistemaHoteleiro
 {
-    public partial class Login : Form
+
+
+    public partial class Login : MetroFramework.Forms.MetroForm
     {
 
+        
         string uName = "Gustavo";
         string uSenha = "1234";
 
@@ -21,6 +24,8 @@ namespace sistemaHoteleiro
             InitializeComponent();
         }
 
+
+       
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -49,6 +54,22 @@ namespace sistemaHoteleiro
             {
                 MessageBox.Show("Credenciais de acesso inválidas!!!");
             }
+        }
+
+        
+
+        private void lbl_esqueci_senha_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Recurprar_senha Recurprar_senha = new Recurprar_senha();
+            Recurprar_senha.Show();
+            this.Hide();
+
         }
     }
 }
