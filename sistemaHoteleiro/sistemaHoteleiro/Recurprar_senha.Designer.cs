@@ -33,11 +33,11 @@
             this.painel_recuperar_senha = new System.Windows.Forms.Panel();
             this.lbl_Email = new System.Windows.Forms.Label();
             this.btn_Enviar = new MetroFramework.Controls.MetroButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_code = new System.Windows.Forms.Panel();
             this.lbl_code = new System.Windows.Forms.Label();
             this.txt_code = new System.Windows.Forms.TextBox();
             this.painel_recuperar_senha.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel_code.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_email
@@ -85,14 +85,15 @@
             this.btn_Enviar.TabIndex = 6;
             this.btn_Enviar.Text = "Enviar";
             // 
-            // panel1
+            // panel_code
             // 
-            this.panel1.Controls.Add(this.txt_code);
-            this.panel1.Controls.Add(this.lbl_code);
-            this.panel1.Location = new System.Drawing.Point(3, 63);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(404, 76);
-            this.panel1.TabIndex = 7;
+            this.panel_code.Controls.Add(this.txt_code);
+            this.panel_code.Controls.Add(this.lbl_code);
+            this.panel_code.Enabled = false;
+            this.panel_code.Location = new System.Drawing.Point(3, 63);
+            this.panel_code.Name = "panel_code";
+            this.panel_code.Size = new System.Drawing.Size(404, 76);
+            this.panel_code.TabIndex = 7;
             // 
             // lbl_code
             // 
@@ -115,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 137);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_code);
             this.Controls.Add(this.painel_recuperar_senha);
             this.Name = "Recurprar_senha";
             this.Style = MetroFramework.MetroColorStyle.Brown;
@@ -124,8 +125,8 @@
             this.Load += new System.EventHandler(this.Recurprar_senha_Load);
             this.painel_recuperar_senha.ResumeLayout(false);
             this.painel_recuperar_senha.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_code.ResumeLayout(false);
+            this.panel_code.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -137,7 +138,7 @@
         private System.Windows.Forms.Panel painel_recuperar_senha;
         private System.Windows.Forms.Label lbl_Email;
         private MetroFramework.Controls.MetroButton btn_Enviar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_code;
         private System.Windows.Forms.TextBox txt_code;
         private System.Windows.Forms.Label lbl_code;
     }

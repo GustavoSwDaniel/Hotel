@@ -76,7 +76,7 @@ namespace sistemaHoteleiro
             return token;
         }
         
-        public bool verificar_token()
+        public void verificar_token()
         {
             int token_email = Convert.ToInt32(txt_code.Text);
 
@@ -89,7 +89,7 @@ namespace sistemaHoteleiro
                 MessageBox.Show("Codigo de verificação com esta correto");
             }
 
-            return false;
+          
         }
         
 
@@ -102,6 +102,8 @@ namespace sistemaHoteleiro
             {
                 painel_recuperar_senha.Enabled = false;
                 enviar_email();
+                panel_code.Enabled = true;
+                verificar_token();
             }
             else
             {
