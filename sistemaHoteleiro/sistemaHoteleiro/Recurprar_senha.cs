@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace sistemaHoteleiro
     public partial class Recurprar_senha : MetroFramework.Forms.MetroForm
     {
 
-        int token = 0;
+        int tokens = 0;
 
 
         public Recurprar_senha()
@@ -44,7 +45,6 @@ namespace sistemaHoteleiro
 
             if (validacao == true)
             {
-                enviar_email();
                 return true;
             }               
             return false;
@@ -54,41 +54,55 @@ namespace sistemaHoteleiro
         public void enviar_email()
         {
             string email = txt_email.Text;
-            token = gerar_token();
-            System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
-            message.To.Add(email);
-            message.Subject = "Alteração de Senha";
-            message.From = new System.Net.Mail.MailAddress("gustavodanieldetoledo@gmail.com");
-            message.Body =
-                "*Troca de senha*\n" +
-                token + "Esse é seu codigo de verificação pra trocar a sua senha\n" +
-                "Caso você não tenha feito essa solicitação por favor ignore esta mensagem";
-            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("yoursmtphost");
-            smtp.Send(message);
+            MailMessage mail = new MailMessage();
+            tokens = gerar_token();
+
+            mail.From = new MailAddress("hoteleirosistema@gmail.com");
+            mail.To.Add(email); // para
+            mail.Subject = "Teste"; // assunto
+            mail.Body = "Codigo de verficação para troca de senha" + tokens + "Caso não tenha solicidade apenas ignore"; // mensagem
+            using (var smtp = new SmtpClient("smtp.gmail.com"))
+            {
+                smtp.EnableSsl = true; // GMail requer SSL
+                smtp.Port = 587;       // porta para SSL
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network; // modo de envio
+                smtp.UseDefaultCredentials = false; // vamos utilizar credencias especificas
+
+                // seu usuário e senha para autenticação
+                smtp.Credentials = new System.Net.NetworkCredential("hoteleirosistema@gmail.com", "852456as8");
+                // envia o e-mail
+                smtp.Send(mail);
+            }
         }
 
-        protected int gerar_token()
+        protected int  gerar_token()
         {
-            int token = 0;
             Random randNum = new Random();
-            token = randNum.Next();
-
+            int token = randNum.Next(1001);
             return token;
+
         }
         
         public void verificar_token()
         {
-            int token_email = Convert.ToInt32(txt_code.Text);
-
-            if(token == token_email)
+            
+            try
             {
-                MessageBox.Show("Pode trocar de senha");
+                int token_email = int.Parse(txt_code.Text);
+                if (tokens == token_email)
+                {
+                    MessageBox.Show("Pode trocar de senha");
+                    tokens = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Codigo de verificação com esta incorreto");
+                }
             }
-            else
+            catch (FormatException)
             {
-                MessageBox.Show("Codigo de verificação com esta correto");
+                MessageBox.Show("Error");
             }
-
           
         }
         
@@ -100,10 +114,10 @@ namespace sistemaHoteleiro
             emailValidado = verifica();
             if (emailValidado == true)
             {
-                painel_recuperar_senha.Enabled = false;
+                painel_recuperar_senha.Visible = false;
                 enviar_email();
-                panel_code.Enabled = true;
-                verificar_token();
+                panel_code.Visible = true;
+                MessageBox.Show("Foi");
             }
             else
             {
@@ -112,6 +126,16 @@ namespace sistemaHoteleiro
             
 
 
+        }
+
+        private void panel_code_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_verificar_token_Click(object sender, EventArgs e)
+        {
+            verificar_token();
         }
     }
 }

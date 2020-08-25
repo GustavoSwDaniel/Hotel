@@ -34,8 +34,9 @@
             this.lbl_Email = new System.Windows.Forms.Label();
             this.btn_Enviar = new MetroFramework.Controls.MetroButton();
             this.panel_code = new System.Windows.Forms.Panel();
-            this.lbl_code = new System.Windows.Forms.Label();
+            this.btn_verificar_token = new System.Windows.Forms.Button();
             this.txt_code = new System.Windows.Forms.TextBox();
+            this.lbl_code = new System.Windows.Forms.Label();
             this.painel_recuperar_senha.SuspendLayout();
             this.panel_code.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@
             this.painel_recuperar_senha.Controls.Add(this.lbl_invalido);
             this.painel_recuperar_senha.Controls.Add(this.btn_Enviar);
             this.painel_recuperar_senha.Controls.Add(this.txt_email);
-            this.painel_recuperar_senha.Location = new System.Drawing.Point(3, 63);
+            this.painel_recuperar_senha.Location = new System.Drawing.Point(-2, 51);
             this.painel_recuperar_senha.Name = "painel_recuperar_senha";
             this.painel_recuperar_senha.Size = new System.Drawing.Size(404, 76);
             this.painel_recuperar_senha.TabIndex = 5;
@@ -84,16 +85,36 @@
             this.btn_Enviar.Size = new System.Drawing.Size(75, 23);
             this.btn_Enviar.TabIndex = 6;
             this.btn_Enviar.Text = "Enviar";
+            this.btn_Enviar.Click += new System.EventHandler(this.btn_Enviar_Click);
             // 
             // panel_code
             // 
+            this.panel_code.Controls.Add(this.btn_verificar_token);
             this.panel_code.Controls.Add(this.txt_code);
             this.panel_code.Controls.Add(this.lbl_code);
-            this.panel_code.Enabled = false;
-            this.panel_code.Location = new System.Drawing.Point(3, 63);
+            this.panel_code.Location = new System.Drawing.Point(-5, 59);
             this.panel_code.Name = "panel_code";
-            this.panel_code.Size = new System.Drawing.Size(404, 76);
+            this.panel_code.Size = new System.Drawing.Size(416, 76);
             this.panel_code.TabIndex = 7;
+            this.panel_code.Visible = false;
+            this.panel_code.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_code_Paint);
+            // 
+            // btn_verificar_token
+            // 
+            this.btn_verificar_token.Location = new System.Drawing.Point(187, 48);
+            this.btn_verificar_token.Name = "btn_verificar_token";
+            this.btn_verificar_token.Size = new System.Drawing.Size(75, 23);
+            this.btn_verificar_token.TabIndex = 2;
+            this.btn_verificar_token.Text = "Verificar";
+            this.btn_verificar_token.UseVisualStyleBackColor = true;
+            this.btn_verificar_token.Click += new System.EventHandler(this.btn_verificar_token_Click);
+            // 
+            // txt_code
+            // 
+            this.txt_code.Location = new System.Drawing.Point(177, 22);
+            this.txt_code.Name = "txt_code";
+            this.txt_code.Size = new System.Drawing.Size(100, 20);
+            this.txt_code.TabIndex = 1;
             // 
             // lbl_code
             // 
@@ -103,13 +124,6 @@
             this.lbl_code.Size = new System.Drawing.Size(102, 13);
             this.lbl_code.TabIndex = 0;
             this.lbl_code.Text = "Code de verificação";
-            // 
-            // txt_code
-            // 
-            this.txt_code.Location = new System.Drawing.Point(177, 22);
-            this.txt_code.Name = "txt_code";
-            this.txt_code.Size = new System.Drawing.Size(100, 20);
-            this.txt_code.TabIndex = 1;
             // 
             // Recurprar_senha
             // 
@@ -141,5 +155,6 @@
         private System.Windows.Forms.Panel panel_code;
         private System.Windows.Forms.TextBox txt_code;
         private System.Windows.Forms.Label lbl_code;
+        private System.Windows.Forms.Button btn_verificar_token;
     }
 }

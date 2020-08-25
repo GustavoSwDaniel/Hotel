@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sistemaHoteleiro.models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,17 +16,11 @@ namespace sistemaHoteleiro
     public partial class Login : MetroFramework.Forms.MetroForm
     {
 
-        
-        string uName = "Gustavo";
-        string uSenha = "1234";
 
         public Login()
         {
             InitializeComponent();
         }
-
-
-       
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -40,19 +35,21 @@ namespace sistemaHoteleiro
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            //Compara se o email e a senha correspondem ao valor salvo nas variáveis no início da classe.
-            if (User_text.Text.Equals(uName) && passworld_text.Text.Equals(uSenha))
+            Controle controle = new Controle();
+            controle.acessar(User_text.Text, passworld_text.Text);
+            if(controle.tem)
             {
-                //Cria um objeto da classe que apresenta o form principal.
                 Hotel formPrinc = new Hotel();
-                //Esconde a tela atual, ou seja, ela continua ativa na pilha de execução.
                 this.Hide();
-                //Abre a janela principal.
                 formPrinc.ShowDialog();
+
             }
             else
             {
-                MessageBox.Show("Credenciais de acesso inválidas!!!");
+                lbl_login_invalido.Visible = true;
+                User_text.Clear();
+                passworld_text.Clear();
+                User_text.Focus();
             }
         }
 

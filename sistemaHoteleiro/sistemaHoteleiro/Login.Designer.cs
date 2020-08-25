@@ -35,16 +35,16 @@
             this.label_user = new System.Windows.Forms.Label();
             this.label_passworld = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_esqueci_senha = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lbl_login_invalido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(119, 316);
+            this.btn_Login.Location = new System.Drawing.Point(117, 307);
             this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(75, 23);
+            this.btn_Login.Size = new System.Drawing.Size(81, 33);
             this.btn_Login.TabIndex = 0;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = true;
@@ -52,23 +52,23 @@
             // 
             // User_text
             // 
-            this.User_text.Location = new System.Drawing.Point(92, 241);
+            this.User_text.Location = new System.Drawing.Point(83, 241);
             this.User_text.Name = "User_text";
-            this.User_text.Size = new System.Drawing.Size(135, 20);
+            this.User_text.Size = new System.Drawing.Size(147, 20);
             this.User_text.TabIndex = 1;
             // 
             // passworld_text
             // 
-            this.passworld_text.Location = new System.Drawing.Point(92, 267);
+            this.passworld_text.Location = new System.Drawing.Point(83, 267);
             this.passworld_text.Name = "passworld_text";
             this.passworld_text.PasswordChar = '*';
-            this.passworld_text.Size = new System.Drawing.Size(135, 20);
+            this.passworld_text.Size = new System.Drawing.Size(147, 20);
             this.passworld_text.TabIndex = 2;
             // 
             // label_user
             // 
             this.label_user.AutoSize = true;
-            this.label_user.Location = new System.Drawing.Point(35, 248);
+            this.label_user.Location = new System.Drawing.Point(29, 248);
             this.label_user.Name = "label_user";
             this.label_user.Size = new System.Drawing.Size(43, 13);
             this.label_user.TabIndex = 4;
@@ -77,7 +77,7 @@
             // label_passworld
             // 
             this.label_passworld.AutoSize = true;
-            this.label_passworld.Location = new System.Drawing.Point(35, 270);
+            this.label_passworld.Location = new System.Drawing.Point(29, 270);
             this.label_passworld.Name = "label_passworld";
             this.label_passworld.Size = new System.Drawing.Size(38, 13);
             this.label_passworld.TabIndex = 5;
@@ -93,34 +93,35 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // lbl_esqueci_senha
-            // 
-            this.lbl_esqueci_senha.AutoSize = true;
-            this.lbl_esqueci_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_esqueci_senha.Location = new System.Drawing.Point(120, 290);
-            this.lbl_esqueci_senha.Name = "lbl_esqueci_senha";
-            this.lbl_esqueci_senha.Size = new System.Drawing.Size(107, 13);
-            this.lbl_esqueci_senha.TabIndex = 7;
-            this.lbl_esqueci_senha.Text = "Esqueci minha senha";
-            this.lbl_esqueci_senha.Click += new System.EventHandler(this.lbl_esqueci_senha_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(213, 316);
+            this.button1.Location = new System.Drawing.Point(91, 403);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(134, 23);
             this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
+            this.button1.Text = "Esqueci minha senha";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lbl_login_invalido
+            // 
+            this.lbl_login_invalido.AutoSize = true;
+            this.lbl_login_invalido.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_login_invalido.ForeColor = System.Drawing.Color.Red;
+            this.lbl_login_invalido.Location = new System.Drawing.Point(117, 290);
+            this.lbl_login_invalido.Name = "lbl_login_invalido";
+            this.lbl_login_invalido.Size = new System.Drawing.Size(112, 13);
+            this.lbl_login_invalido.TabIndex = 9;
+            this.lbl_login_invalido.Text = "Senha ou cpf invalido!";
+            this.lbl_login_invalido.Visible = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 450);
+            this.Controls.Add(this.lbl_login_invalido);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbl_esqueci_senha);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_passworld);
             this.Controls.Add(this.label_user);
@@ -128,7 +129,7 @@
             this.Controls.Add(this.User_text);
             this.Controls.Add(this.btn_Login);
             this.Name = "Login";
-            this.Style = MetroFramework.MetroColorStyle.Brown;
+            this.Style = MetroFramework.MetroColorStyle.Black;
             this.Text = "Login Hotel Matilha";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -145,8 +146,8 @@
         private System.Windows.Forms.Label label_user;
         private System.Windows.Forms.Label label_passworld;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbl_esqueci_senha;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbl_login_invalido;
     }
 }
 
