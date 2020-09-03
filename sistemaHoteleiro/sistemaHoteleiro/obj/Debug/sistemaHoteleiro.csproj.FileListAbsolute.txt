@@ -41,3 +41,14 @@ C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.CadastroFuncionario.resources
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.pages.CadastrarHospedes.resources
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.pages.TelaInicial.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\System.Buffers.dll
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\System.Memory.dll
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\System.Buffers.xml
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\System.Memory.xml
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.CadastroDeQuartos.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.CheckOutHospede.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.Administrativo.resources
