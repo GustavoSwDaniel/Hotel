@@ -66,6 +66,7 @@
             this.lbl_telefone = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.title_cadastro = new System.Windows.Forms.Label();
+            this.cbPagamentos = new System.Windows.Forms.CheckBox();
             this.panel_cadastroH.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +74,7 @@
             // 
             this.panel_cadastroH.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel_cadastroH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_cadastroH.Controls.Add(this.cbPagamentos);
             this.panel_cadastroH.Controls.Add(this.lbl_avisoE);
             this.panel_cadastroH.Controls.Add(this.lbl_avisoN);
             this.panel_cadastroH.Controls.Add(this.numDoQuarto);
@@ -114,6 +116,7 @@
             this.panel_cadastroH.Name = "panel_cadastroH";
             this.panel_cadastroH.Size = new System.Drawing.Size(1110, 602);
             this.panel_cadastroH.TabIndex = 4;
+            this.panel_cadastroH.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_cadastroH_Paint);
             // 
             // lbl_avisoE
             // 
@@ -491,6 +494,17 @@
             this.title_cadastro.TabIndex = 0;
             this.title_cadastro.Text = "Cadastro de Hospedes";
             // 
+            // cbPagamentos
+            // 
+            this.cbPagamentos.AutoSize = true;
+            this.cbPagamentos.Location = new System.Drawing.Point(764, 226);
+            this.cbPagamentos.Name = "cbPagamentos";
+            this.cbPagamentos.Size = new System.Drawing.Size(137, 17);
+            this.cbPagamentos.TabIndex = 43;
+            this.cbPagamentos.Text = "Pagamento Antecipado";
+            this.cbPagamentos.UseVisualStyleBackColor = true;
+            this.cbPagamentos.CheckStateChanged += new System.EventHandler(this.cbPagamentos_CheckStateChanged);
+            // 
             // CadastrarHospedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -546,5 +560,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_avisoN;
         private System.Windows.Forms.Label lbl_avisoE;
+        private System.Windows.Forms.CheckBox cbPagamentos;
     }
 }

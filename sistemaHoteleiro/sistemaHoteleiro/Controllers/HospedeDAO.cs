@@ -18,10 +18,14 @@ namespace sistemaHoteleiro.Controllers
         
         private Conexao Con { get; set; }
 
+        private SqlCommand cmdU;
+
         private SqlCommand cmdHospedes { get; set; }
         private SqlCommand cmdQuartos { get; set; }
         private SqlCommand cmdRegistros { get; set; }
         private SqlCommand cmd { get; set; }
+
+        private SqlCommand cmdP { get; set; }
 
         public HospedeDAO()
         {
@@ -34,7 +38,7 @@ namespace sistemaHoteleiro.Controllers
             if (Convert.ToInt32(numeroDeQuartos) == 1)
             {
                 cmd.Connection = Con.Conectar();
-                cmd.CommandText = @"SELECT cpf_hospede FROM quartos WHERE cpf_hospede=@cpfhospede";
+                cmd.CommandText = @"SELECT cpf FROM hospedes WHERE cpf=@cpfhospede";
                 cmd.Parameters.AddWithValue("@cpfhospede", cpf);
                 SqlDataReader read = cmd.ExecuteReader();
 
@@ -59,23 +63,7 @@ namespace sistemaHoteleiro.Controllers
 
         private bool verificarSeQuartoEstaOcupado(string numeroDeQuarto)
         {
-            cmd.Connection = Con.Conectar();
-            cmd.CommandText = @"SELECT cpf_hospede FROM quartos WHERE id_quarto=@idQuarto";
-            cmd.Parameters.AddWithValue("@idQuarto", numeroDeQuarto);
-            SqlDataReader read = cmd.ExecuteReader();
-
-            if (read.Read())
-            {
-                MessageBox.Show("Quarto Ocupado");
-                Con.desconectar();
-                return false;
-            }
-            else
-            {
-                MessageBox.Show("Bora!!" + numeroDeQuarto);
-                Con.desconectar();
-                return true;
-            }
+            return true;
         }
 
         public bool CadastrarHospede(Hospedes hp)
@@ -83,6 +71,15 @@ namespace sistemaHoteleiro.Controllers
             bool respC = verificarSeCpfExiste(hp.cpf, hp.numeroDeQuartos);
             bool respQ = verificarSeQuartoEstaOcupado(hp.numeroDoQuarto);
 
+            string statusPay;
+            if(hp.statusPagamento)
+            {
+                statusPay = "pago";
+            }
+            else
+            {
+                statusPay = "pendente";
+            }
 
             if (respC == true && respQ == true)
             {
@@ -92,10 +89,10 @@ namespace sistemaHoteleiro.Controllers
                 cmdRegistros = Con.CreatCom();
                 Con.Conectar();
 
+                SqlTransaction tran = Con.Transacoes();
 
 
-                cmdHospedes.CommandText = @"INSERT INTO hospedes VALUES(@nome, @email, @numero_do_quarto, @telefone, @celular, @cpf, @cnpj, @cep, @cidade, @uf, @data_nascimento, @data_entrada, @data_saida)";
-
+                cmdHospedes.CommandText = @"INSERT INTO hospedes VALUES(@nome, @email, @numero_do_quarto, @telefone, @celular, @cpf, @cnpj, @cep, @cidade, @uf, @data_nascimento, @data_entrada, @data_saida) SELECT SCOPE_IDENTITY();";
                 cmdHospedes.Parameters.AddWithValue("@nome", hp.nomeCompleto);
                 cmdHospedes.Parameters.AddWithValue("@email", hp.email);
                 cmdHospedes.Parameters.AddWithValue("@numero_do_quarto", hp.numeroDoQuarto);
@@ -110,33 +107,29 @@ namespace sistemaHoteleiro.Controllers
                 cmdHospedes.Parameters.AddWithValue("@data_entrada", SqlDbType.DateTime).Value = hp.dataE;
                 cmdHospedes.Parameters.AddWithValue("@data_saida", SqlDbType.DateTime).Value = hp.dataS;
 
-                cmdQuartos.CommandText = @"INSERT INTO quartos VALUES(@id_quarto, @cpf_hospede, @nome_do_hospede, @tipo_do_quarto, @dataEntrada, @dataSaida)";
-                cmdQuartos.Parameters.AddWithValue("@id_quarto", hp.numeroDoQuarto);
-                cmdQuartos.Parameters.AddWithValue("@cpf_hospede", hp.cpf);
-                cmdQuartos.Parameters.AddWithValue("@nome_do_hospede", hp.nomeCompleto);
-                cmdQuartos.Parameters.AddWithValue("@tipo_do_quarto", hp.timQ);
-                cmdQuartos.Parameters.AddWithValue("@dataEntrada", SqlDbType.DateTime).Value = hp.dataN;
-                cmdQuartos.Parameters.AddWithValue("@dataSaida", SqlDbType.DateTime).Value = hp.dataE;
-
                 string status = "ocupado";
                 cmdRegistros.CommandText = @"UPDATE registrosQuartos SET status_quarto=@status WHERE numero_do_quarto=@quarto";
                 cmdRegistros.Parameters.AddWithValue("@quarto", hp.numeroDoQuarto);
                 cmdRegistros.Parameters.AddWithValue("@status", status);
 
-                SqlTransaction tran = Con.Transacoes();
-
                 try
                 {
-
                     cmdHospedes.Transaction = tran;
-                    cmdHospedes.ExecuteNonQuery();
+                    int hospede_id = Convert.ToInt32(cmdHospedes.ExecuteScalar());
+                    cmdRegistros.Transaction = tran;
+                    cmdRegistros.ExecuteNonQuery();
+                     
+                    cmdQuartos.CommandText = @"INSERT INTO quartos VALUES(@id_quarto, @numero_do_quarto, @hospede_id, @status_de_pagamento)";
+                    cmdQuartos.Parameters.AddWithValue("@id_quarto", hp.numeroDoQuarto);
+                    cmdQuartos.Parameters.AddWithValue("@numero_do_quarto", hp.numeroDoQuarto);
+                    cmdQuartos.Parameters.AddWithValue("@hospede_id", hospede_id);
+                    cmdQuartos.Parameters.AddWithValue("@numero_de_ocupantes", 2);
+                    cmdQuartos.Parameters.AddWithValue("status_de_pagamento", statusPay);
+
 
                     cmdQuartos.Transaction = tran;
                     cmdQuartos.ExecuteNonQuery();
-
-                    cmdRegistros.Transaction = tran;
-                    cmdRegistros.ExecuteNonQuery();
-
+                    
                     tran.Commit();
                     return true;
                 }
@@ -149,45 +142,40 @@ namespace sistemaHoteleiro.Controllers
                 finally
                 {
                     Con.desconectar();
-                }
+                }                               
             }
             return false;
         }
     
-       public bool checkoutHospede(string id, string cpf, string name)
+       public bool checkoutHospede(int idQuarto, int idHospede, int numQuarto, string nome)
        {
             
             
-            DialogResult dialogResult = MessageBox.Show("Você tem certeza que deseja realizar o Check Out de " + name + "?", "Check Out", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Você tem certeza que deseja realizar o Check Out de " + nome + "?", "Check Out", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Con.Conectar();
-                string status = "vazio";
-                cmdQuartos.CommandText = @"DELETE FROM quartos WHERE id_quarto = @id";
-                cmdQuartos.Parameters.AddWithValue("@id", id);
-                cmdHospedes.CommandText = @"DELETE FROM hospedes WHERE cpf = @cpf";
-                cmdHospedes.Parameters.AddWithValue("@cpf", cpf);
-                cmd.CommandText = @"UPDATE registrosQuartos SET status_quarto = @status_quarto";
-                cmd.Parameters.AddWithValue("@status_quarto", status);
 
-                SqlTransaction tran = Con.Transacoes();
+                ///SqlTransaction tran = Con.Transacoes();
+                
+                cmdP = new SqlCommand("dbo.Excluir");
+                cmdP.Connection = Con.Conectar();
+
+
+                cmdP.CommandType = CommandType.StoredProcedure;
+                cmdP.Parameters.Add(new SqlParameter("@idHospede", idHospede));
+                cmdP.Parameters.Add(new SqlParameter("@id_quarto", idQuarto));
+                cmdP.Parameters.Add(new SqlParameter("numeroQuarto", numQuarto));
+
                 try
-                {
-                    cmdHospedes.Transaction = tran;
-                    cmdHospedes.ExecuteNonQuery();
-
-                    cmdQuartos.Transaction = tran;
-                    cmdQuartos.ExecuteNonQuery();
-
-                    cmdRegistros.Transaction = tran;
-                    cmdRegistros.ExecuteNonQuery();
-
-                    tran.Commit();
+                {                  
+                    //cmdP.Transaction = tran;
+                    cmdP.ExecuteNonQuery();
+                    //tran.Commit();
                     return true;
                 }
                 catch(SqlException ex)
                 {
-                    tran.Rollback();
+                    ///tran.Rollback();
                     MessageBox.Show("Erro" + ex);
                     return false;
                 }
@@ -198,6 +186,34 @@ namespace sistemaHoteleiro.Controllers
              
             }
             return false;
+        }
+
+       public bool updade(int quartoAntigo, int quartoNovo)
+        {
+
+
+            cmdU = new SqlCommand("dbo.updadeQuartos");
+            cmdU.Connection = Con.Conectar();
+
+
+            cmdU.CommandType = CommandType.StoredProcedure;
+            cmdU.Parameters.Add(new SqlParameter("@novoID", quartoNovo));
+            cmdU.Parameters.Add(new SqlParameter("@antigoId", quartoAntigo));
+            
+            try
+            {
+                cmdU.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro" + ex);
+                return false;
+            }
+            finally
+            {
+                Con.desconectar();
+            }
         }
        
     }

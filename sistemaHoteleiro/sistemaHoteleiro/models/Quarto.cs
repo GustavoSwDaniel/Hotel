@@ -12,10 +12,13 @@ namespace sistemaHoteleiro.models
         public string numeroDoQuarto { get; set; }
         public string tipoDoQuarto { get; set; }
 
-        public Quarto(string numeroDoQuarto, string tipoDoQuarto)
+        public float valorDaDiaria { get; set; }
+
+        public Quarto(string numeroDoQuarto, string tipoDoQuarto, float valorDaDiaria)
         {
             this.numeroDoQuarto = numeroDoQuarto;
             this.tipoDoQuarto = tipoDoQuarto;
+            this.valorDaDiaria = valorDaDiaria;
         }
     }
 }

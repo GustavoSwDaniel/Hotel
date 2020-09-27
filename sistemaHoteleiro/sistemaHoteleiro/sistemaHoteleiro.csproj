@@ -122,20 +122,50 @@
     <Compile Include="Controllers\HospedeDAO.cs" />
     <Compile Include="Controllers\QuartoController.cs" />
     <Compile Include="Controllers\QuartoDAO.cs" />
-    <Compile Include="hotelDataSet2.Designer.cs">
+    <Compile Include="funcio1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>hotelDataSet2.xsd</DependentUpon>
+      <DependentUpon>funcio1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="hospedeList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hospedeList.xsd</DependentUpon>
     </Compile>
     <Compile Include="models\Base.cs" />
     <Compile Include="models\Empresas.cs" />
     <Compile Include="models\Funcionarios.cs" />
     <Compile Include="models\Hospedes.cs" />
     <Compile Include="models\Quarto.cs" />
-    <Compile Include="views\Administrativo.cs">
+    <Compile Include="Quartos.cs">
+      <DependentUpon>Quartos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Quartos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quartos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="teste2DataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teste2DataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="views\Listas\ListarHospedes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Administrativo.Designer.cs">
+    <Compile Include="views\Listas\ListarHospedes.Designer.cs">
+      <DependentUpon>ListarHospedes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\RecursosAdministrativos\AdministrasaoDeFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\RecursosAdministrativos\AdministrasaoDeFuncionarios.Designer.cs">
+      <DependentUpon>AdministrasaoDeFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\RecursosAdministrativos\Administrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\RecursosAdministrativos\Administrativo.Designer.cs">
       <DependentUpon>Administrativo.cs</DependentUpon>
     </Compile>
     <Compile Include="views\CadastrarHospedes.cs">
@@ -144,26 +174,38 @@
     <Compile Include="views\CadastrarHospedes.Designer.cs">
       <DependentUpon>CadastrarHospedes.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\CadastroDeQuartos.cs">
+    <Compile Include="views\RecursosAdministrativos\CadastroDeQuartos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\CadastroDeQuartos.Designer.cs">
+    <Compile Include="views\RecursosAdministrativos\CadastroDeQuartos.Designer.cs">
       <DependentUpon>CadastroDeQuartos.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\CadastroFuncionario.cs">
+    <Compile Include="views\RecursosAdministrativos\CadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\CadastroFuncionario.Designer.cs">
+    <Compile Include="views\RecursosAdministrativos\CadastroFuncionario.Designer.cs">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Conexao.cs" />
     <Compile Include="Controllers\LoginDaoComandos.cs" />
     <Compile Include="Controllers\Controle.cs" />
+    <Compile Include="views\CheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\CheckOut.Designer.cs">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\CheckOutHospede.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="views\CheckOutHospede.Designer.cs">
       <DependentUpon>CheckOutHospede.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Listas\Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Listas\Listar.Designer.cs">
+      <DependentUpon>Listar.cs</DependentUpon>
     </Compile>
     <Compile Include="views\TelaInicial.cs">
       <SubType>Form</SubType>
@@ -192,26 +234,38 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\validacao.cs" />
-    <EmbeddedResource Include="views\Administrativo.resx">
+    <EmbeddedResource Include="views\Listas\ListarHospedes.resx">
+      <DependentUpon>ListarHospedes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\RecursosAdministrativos\AdministrasaoDeFuncionarios.resx">
+      <DependentUpon>AdministrasaoDeFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\RecursosAdministrativos\Administrativo.resx">
       <DependentUpon>Administrativo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\CadastrarHospedes.resx">
       <DependentUpon>CadastrarHospedes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\CadastroDeQuartos.resx">
+    <EmbeddedResource Include="views\RecursosAdministrativos\CadastroDeQuartos.resx">
       <DependentUpon>CadastroDeQuartos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\CadastroFuncionario.resx">
+    <EmbeddedResource Include="views\RecursosAdministrativos\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\CheckOut.resx">
+      <DependentUpon>CheckOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\CheckOutHospede.resx">
       <DependentUpon>CheckOutHospede.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Listas\Listar.resx">
+      <DependentUpon>Listar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
@@ -224,16 +278,27 @@
     <EmbeddedResource Include="views\Recurprar_senha.resx">
       <DependentUpon>Recurprar_senha.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="hotelDataSet2.xsc">
-      <DependentUpon>hotelDataSet2.xsd</DependentUpon>
+    <None Include="funcio1.xsc">
+      <DependentUpon>funcio1.xsd</DependentUpon>
     </None>
-    <None Include="hotelDataSet2.xsd">
+    <None Include="funcio1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>hotelDataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>funcio1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="hotelDataSet2.xss">
-      <DependentUpon>hotelDataSet2.xsd</DependentUpon>
+    <None Include="funcio1.xss">
+      <DependentUpon>funcio1.xsd</DependentUpon>
+    </None>
+    <None Include="hospedeList.xsc">
+      <DependentUpon>hospedeList.xsd</DependentUpon>
+    </None>
+    <None Include="hospedeList.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hospedeList.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hospedeList.xss">
+      <DependentUpon>hospedeList.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -250,6 +315,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Quartos.xsc">
+      <DependentUpon>Quartos.xsd</DependentUpon>
+    </None>
+    <None Include="Quartos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Quartos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Quartos.xss">
+      <DependentUpon>Quartos.xsd</DependentUpon>
+    </None>
+    <None Include="teste2DataSet5.xsc">
+      <DependentUpon>teste2DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="teste2DataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>teste2DataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="teste2DataSet5.xss">
+      <DependentUpon>teste2DataSet5.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -259,6 +346,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\atualizar.png" />
+    <None Include="Resources\disparamos.png" />
+    <None Include="Resources\cama.png" />
+    <None Include="Resources\quarto.png" />
+    <None Include="Resources\man.png" />
+    <None Include="Resources\guest.png" />
+    <None Include="Resources\list.png" />
     <None Include="Resources\administracao 2.png" />
     <None Include="Resources\administracao.png" />
     <None Include="Resources\bed_bed_room_sleep_furniture_icon_124423%282%29.png" />

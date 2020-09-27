@@ -87,5 +87,15 @@ namespace sistemaHoteleiro
 
             AbrirFormaInPainel(new Administrativo());
         }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_ListarHospede_Click(object sender, EventArgs e)
+        {
+            AbrirFormaInPainel(new Listar());
+        }
     }
 }

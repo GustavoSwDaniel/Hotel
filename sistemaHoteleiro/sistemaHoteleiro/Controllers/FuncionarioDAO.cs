@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace sistemaHoteleiro.Controllers
 {
-    class FuncionarioDAO
+    class FuncionarioDAO : Conexao
     { 
         private SqlCommand cmd { get; set; }
         private Conexao Con { get; set; }
@@ -22,11 +22,55 @@ namespace sistemaHoteleiro.Controllers
             cmd = new SqlCommand();
         }
 
+        public bool trocaSenha(string cpf, string nova_senha)
+        {
+            cmd = new SqlCommand("dbo.update_senha");
+            cmd.Connection = Con.Conectar();
+            Hash hs = new Hash();
+
+            string cry_nova_senha = hs.BhashPassword(nova_senha);
+           
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@cpf", cpf));
+            cmd.Parameters.Add(new SqlParameter("@nova_senha", cry_nova_senha));
+
+            try
+            {           
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro" + ex);
+                return false;
+            }
+            finally
+            {
+                Con.desconectar();
+            }
+
+        }           
+   
+
+        public string RetornaEmail(string cpf)
+        {
+            cmd.Connection = Con.Conectar();
+            cmd.CommandText = @"SELECT email From funcionario WHERE cpf=@cpf_e";
+            cmd.Parameters.AddWithValue("cpf_e", cpf);
+            SqlDataReader read = cmd.ExecuteReader();
+            
+            if(read.Read())
+            {
+                string email = read[0].ToString();      
+                return email;
+            }
+            return null;
+        }
 
         private bool VerificarSeCpfExiste(string cpf)
         {
             cmd.Connection = Con.Conectar();
-            cmd.CommandText = @"SELECT cpf FROM funcionarios WHERE cpf=@cpf_f ";
+            cmd.CommandText = @"SELECT cpf FROM funcionario WHERE cpf=@cpf_f ";
             cmd.Parameters.AddWithValue("cpf_f", cpf);
             SqlDataReader read = cmd.ExecuteReader();
 
@@ -41,9 +85,6 @@ namespace sistemaHoteleiro.Controllers
         }
 
 
-
-
-
         public bool CadastrarFuncionario(Funcionarios fn)
         {
             bool resp = VerificarSeCpfExiste(fn.cpf);
@@ -51,7 +92,7 @@ namespace sistemaHoteleiro.Controllers
             if(resp)
             {
                 cmd.Connection = Con.Conectar();
-                cmd.CommandText = @"INSERT INTO funcionarios VALUES(@Nome, @email, @cpf, @senha, @salario, @telefone, @celular, @cidade, @uf, @endereco, @cargo, @data_nascimento, @data_admissao)";
+                cmd.CommandText = @"INSERT INTO funcionario VALUES(@Nome, @email, @cpf, @senha, @salario, @telefone, @celular, @cidade, @uf, @endereco, @cargo, @data_nascimento, @data_admissao) SELECT SCOPE_IDENTITY();";
                 cmd.Parameters.AddWithValue("@Nome", fn.nomeCompleto);
                 cmd.Parameters.AddWithValue("@email", fn.email);
                 cmd.Parameters.AddWithValue("cpf", fn.cpf);
@@ -66,7 +107,9 @@ namespace sistemaHoteleiro.Controllers
                 cmd.Parameters.AddWithValue("@data_nascimento", SqlDbType.DateTime).Value = fn.dataN;
                 cmd.Parameters.AddWithValue("@data_admissao", SqlDbType.DateTime).Value = fn.data_admisao;
                 if (cmd.ExecuteNonQuery() == 1)
+                {                   
                     return true;
+                }
                 return false;    
             }
             return false;
@@ -74,21 +117,3 @@ namespace sistemaHoteleiro.Controllers
     }
 }
 
-/*
- id INTEGER IDENTITY(1001,1) PRIMARY KEY NOT NULL,
-	Nome varchar(50) NOT NULL,
-	sobrenome varchar(50) NOT NULL,
-	email varchar(50) NOT NULL,
-	senha varchar(150) NOT NULL,
-	telefone varchar(10),
-	cidade  varchar(50) NOT NULL,
-	uf varchar(2) not null,
-	celular varchar(11),
-	cpf varchar(11) NOT NULL,
-	endereco  varchar(100) NOT NULL,
-	salario decimal(10,2) NOT NULL,
-	cargo varchar(50) NOT NULL,
-	data_nascimento date NOT NULL,
-	data_admisao date
-);
- */

@@ -33,5 +33,16 @@ namespace sistemaHoteleiro.Properties {
                 return ((string)(this["hotelConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AR2I7GC\\SQLEXPRESS;Initial Catalog=teste2;Integrated Security" +
+            "=True")]
+        public string HotelConnectionStringV2 {
+            get {
+                return ((string)(this["HotelConnectionStringV2"]));
+            }
+        }
     }
 }

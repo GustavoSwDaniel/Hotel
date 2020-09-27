@@ -52,3 +52,7 @@ C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\bin\Debug
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.CadastroDeQuartos.resources
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.CheckOutHospede.resources
 C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.Administrativo.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.CheckOut.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.Listar.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.RecursosAdministrativos.AdministrasaoDeFuncionarios.resources
+C:\Users\Lobo\Documents\GitHub\Hotel\sistemaHoteleiro\sistemaHoteleiro\obj\Debug\sistemaHoteleiro.views.Listas.ListarHospedes.resources

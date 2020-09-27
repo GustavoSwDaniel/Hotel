@@ -1,8 +1,10 @@
-﻿using sistemaHoteleiro.models;
+﻿using sistemaHoteleiro.controlers;
+using sistemaHoteleiro.models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,11 +17,29 @@ namespace sistemaHoteleiro
 
     public partial class Login : MetroFramework.Forms.MetroForm
     {
+        private Conexao Con { get; set; }
+
+        private SqlCommand cmd { get; set; }
 
 
         public Login()
         {
             InitializeComponent();
+
+            Con = new Conexao();
+            cmd = new SqlCommand("dbo.create_default_user");
+            cmd.Connection = Con.Conectar();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Error" + ex);
+            }
         }
 
 
@@ -40,7 +60,7 @@ namespace sistemaHoteleiro
             if(controle.tem)
             {
                 Hotel formPrinc = new Hotel();
-                this.Hide();
+                Hide();
                 formPrinc.ShowDialog();
 
             }

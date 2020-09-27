@@ -34,40 +34,50 @@
             this.ck_lblCpf = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridQuartos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpfhospedeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quartosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelDataSet = new sistemaHoteleiro.hotelDataSet();
             this.button2 = new System.Windows.Forms.Button();
-            this.pnl_CheckOut = new System.Windows.Forms.Panel();
-            this.quartosTableAdapter = new sistemaHoteleiro.hotelDataSetTableAdapters.quartosTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_val = new System.Windows.Forms.Label();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.lbl_CheckIn = new System.Windows.Forms.Label();
-            this.lbl_CheckOu = new System.Windows.Forms.Label();
-            this.lbl_desconto = new System.Windows.Forms.Label();
-            this.lblnumQ = new System.Windows.Forms.Label();
-            this.lbl_cpf = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.lbl_valor = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.btn_Pagar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_statusQ = new System.Windows.Forms.Label();
+            this.lbl_status = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_Pagar = new System.Windows.Forms.Button();
+            this.mskCheckInOut = new System.Windows.Forms.MaskedTextBox();
+            this.mskCheckIn = new System.Windows.Forms.MaskedTextBox();
+            this.txt_num = new System.Windows.Forms.TextBox();
+            this.lbl_valor = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCpf = new System.Windows.Forms.TextBox();
+            this.txt_nome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_cpf = new System.Windows.Forms.Label();
+            this.lblnumQ = new System.Windows.Forms.Label();
+            this.lbl_desconto = new System.Windows.Forms.Label();
+            this.lbl_CheckOu = new System.Windows.Forms.Label();
+            this.lbl_CheckIn = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.lbl_val = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lbl_aviso = new System.Windows.Forms.Label();
+            this.pnl_CheckOut = new System.Windows.Forms.Panel();
+            this.teste2DataSet = new sistemaHoteleiro.teste2DataSet();
+            this.buscaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.buscaTableAdapter = new sistemaHoteleiro.teste2DataSetTableAdapters.BuscaTableAdapter();
+            this.idQuartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroquartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomehospedeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusdepagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataentradaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datasaidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuartos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quartosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
-            this.pnl_CheckOut.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnl_CheckOut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teste2DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // title_cadastro
@@ -79,6 +89,7 @@
             this.title_cadastro.Size = new System.Drawing.Size(134, 29);
             this.title_cadastro.TabIndex = 1;
             this.title_cadastro.Text = "Check Out";
+            this.title_cadastro.Click += new System.EventHandler(this.title_cadastro_Click);
             // 
             // txt_cpf
             // 
@@ -114,74 +125,27 @@
             // dataGridQuartos
             // 
             this.dataGridQuartos.AllowUserToAddRows = false;
+            this.dataGridQuartos.AllowUserToDeleteRows = false;
             this.dataGridQuartos.AutoGenerateColumns = false;
             this.dataGridQuartos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridQuartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridQuartos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idQuartoDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn1,
-            this.cpfhospedeDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.dataGridQuartos.DataSource = this.quartosBindingSource;
-            this.dataGridQuartos.Location = new System.Drawing.Point(186, 77);
+            this.numeroquartoDataGridViewTextBoxColumn,
+            this.nomehospedeDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn8,
+            this.statusdepagamentoDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataentradaDataGridViewTextBoxColumn,
+            this.datasaidaDataGridViewTextBoxColumn});
+            this.dataGridQuartos.DataSource = this.buscaBindingSource1;
+            this.dataGridQuartos.Location = new System.Drawing.Point(28, 77);
             this.dataGridQuartos.Name = "dataGridQuartos";
             this.dataGridQuartos.ReadOnly = true;
-            this.dataGridQuartos.Size = new System.Drawing.Size(644, 180);
+            this.dataGridQuartos.Size = new System.Drawing.Size(1044, 180);
             this.dataGridQuartos.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_quarto";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id_quarto";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // cpfhospedeDataGridViewTextBoxColumn
-            // 
-            this.cpfhospedeDataGridViewTextBoxColumn.DataPropertyName = "cpf_hospede";
-            this.cpfhospedeDataGridViewTextBoxColumn.HeaderText = "cpf_hospede";
-            this.cpfhospedeDataGridViewTextBoxColumn.Name = "cpfhospedeDataGridViewTextBoxColumn";
-            this.cpfhospedeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "nome_do_hospede";
-            this.dataGridViewTextBoxColumn2.HeaderText = "nome_do_hospede";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "tipo_do_quarto";
-            this.dataGridViewTextBoxColumn3.HeaderText = "tipo_do_quarto";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "dataEntrada";
-            this.dataGridViewTextBoxColumn4.HeaderText = "dataEntrada";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "dataSaida";
-            this.dataGridViewTextBoxColumn5.HeaderText = "dataSaida";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // quartosBindingSource
-            // 
-            this.quartosBindingSource.DataMember = "quartos";
-            this.quartosBindingSource.DataSource = this.hotelDataSet;
-            // 
-            // hotelDataSet
-            // 
-            this.hotelDataSet.DataSetName = "hotelDataSet";
-            this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button2
             // 
@@ -193,39 +157,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // pnl_CheckOut
-            // 
-            this.pnl_CheckOut.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnl_CheckOut.Controls.Add(this.panel1);
-            this.pnl_CheckOut.Controls.Add(this.button2);
-            this.pnl_CheckOut.Controls.Add(this.dataGridQuartos);
-            this.pnl_CheckOut.Controls.Add(this.button1);
-            this.pnl_CheckOut.Controls.Add(this.ck_lblCpf);
-            this.pnl_CheckOut.Controls.Add(this.txt_cpf);
-            this.pnl_CheckOut.Controls.Add(this.title_cadastro);
-            this.pnl_CheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_CheckOut.Location = new System.Drawing.Point(0, 0);
-            this.pnl_CheckOut.Name = "pnl_CheckOut";
-            this.pnl_CheckOut.Size = new System.Drawing.Size(1110, 602);
-            this.pnl_CheckOut.TabIndex = 0;
-            // 
-            // quartosTableAdapter
-            // 
-            this.quartosTableAdapter.ClearBeforeFill = true;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lbl_statusQ);
+            this.panel1.Controls.Add(this.lbl_status);
             this.panel1.Controls.Add(this.btn_cancel);
             this.panel1.Controls.Add(this.btn_Pagar);
-            this.panel1.Controls.Add(this.maskedTextBox2);
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.mskCheckInOut);
+            this.panel1.Controls.Add(this.mskCheckIn);
+            this.panel1.Controls.Add(this.txt_num);
             this.panel1.Controls.Add(this.lbl_valor);
             this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtCpf);
+            this.panel1.Controls.Add(this.txt_nome);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbl_cpf);
             this.panel1.Controls.Add(this.lblnumQ);
@@ -239,25 +187,172 @@
             this.panel1.Size = new System.Drawing.Size(876, 178);
             this.panel1.TabIndex = 7;
             // 
-            // lbl_val
+            // label3
             // 
-            this.lbl_val.AutoSize = true;
-            this.lbl_val.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_val.Location = new System.Drawing.Point(334, 1);
-            this.lbl_val.Name = "lbl_val";
-            this.lbl_val.Size = new System.Drawing.Size(219, 31);
-            this.lbl_val.TabIndex = 0;
-            this.lbl_val.Text = "Valores a pagar";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(642, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "SUB";
             // 
-            // lblNome
+            // label2
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(16, 51);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(49, 15);
-            this.lblNome.TabIndex = 1;
-            this.lblNome.Text = "Nome:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(568, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 15);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Sub-Total:";
+            // 
+            // lbl_statusQ
+            // 
+            this.lbl_statusQ.AutoSize = true;
+            this.lbl_statusQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_statusQ.Location = new System.Drawing.Point(474, 117);
+            this.lbl_statusQ.Name = "lbl_statusQ";
+            this.lbl_statusQ.Size = new System.Drawing.Size(0, 13);
+            this.lbl_statusQ.TabIndex = 18;
+            // 
+            // lbl_status
+            // 
+            this.lbl_status.AutoSize = true;
+            this.lbl_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_status.Location = new System.Drawing.Point(373, 117);
+            this.lbl_status.Name = "lbl_status";
+            this.lbl_status.Size = new System.Drawing.Size(84, 15);
+            this.lbl_status.TabIndex = 17;
+            this.lbl_status.Text = "Pagamento:";
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(447, 143);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.TabIndex = 16;
+            this.btn_cancel.Text = "Cancelar";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            // 
+            // btn_Pagar
+            // 
+            this.btn_Pagar.Location = new System.Drawing.Point(365, 143);
+            this.btn_Pagar.Name = "btn_Pagar";
+            this.btn_Pagar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Pagar.TabIndex = 15;
+            this.btn_Pagar.Text = "Pagar";
+            this.btn_Pagar.UseVisualStyleBackColor = true;
+            // 
+            // mskCheckInOut
+            // 
+            this.mskCheckInOut.Location = new System.Drawing.Point(453, 79);
+            this.mskCheckInOut.Mask = "00/00/0000 90:00";
+            this.mskCheckInOut.Name = "mskCheckInOut";
+            this.mskCheckInOut.Size = new System.Drawing.Size(100, 20);
+            this.mskCheckInOut.TabIndex = 14;
+            this.mskCheckInOut.ValidatingType = typeof(System.DateTime);
+            // 
+            // mskCheckIn
+            // 
+            this.mskCheckIn.Location = new System.Drawing.Point(88, 79);
+            this.mskCheckIn.Mask = "00/00/0000";
+            this.mskCheckIn.Name = "mskCheckIn";
+            this.mskCheckIn.Size = new System.Drawing.Size(77, 20);
+            this.mskCheckIn.TabIndex = 13;
+            this.mskCheckIn.ValidatingType = typeof(System.DateTime);
+            // 
+            // txt_num
+            // 
+            this.txt_num.Enabled = false;
+            this.txt_num.Location = new System.Drawing.Point(813, 43);
+            this.txt_num.Name = "txt_num";
+            this.txt_num.Size = new System.Drawing.Size(31, 20);
+            this.txt_num.TabIndex = 12;
+            // 
+            // lbl_valor
+            // 
+            this.lbl_valor.AutoSize = true;
+            this.lbl_valor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_valor.Location = new System.Drawing.Point(736, 117);
+            this.lbl_valor.Name = "lbl_valor";
+            this.lbl_valor.Size = new System.Drawing.Size(92, 13);
+            this.lbl_valor.TabIndex = 11;
+            this.lbl_valor.Text = "VALOR TOTAL";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(119, 116);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(35, 20);
+            this.textBox3.TabIndex = 10;
+            this.textBox3.Text = "0";
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.Enabled = false;
+            this.txtCpf.Location = new System.Drawing.Point(408, 45);
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(145, 20);
+            this.txtCpf.TabIndex = 9;
+            // 
+            // txt_nome
+            // 
+            this.txt_nome.Enabled = false;
+            this.txt_nome.Location = new System.Drawing.Point(72, 45);
+            this.txt_nome.Name = "txt_nome";
+            this.txt_nome.Size = new System.Drawing.Size(284, 20);
+            this.txt_nome.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(687, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Total:";
+            // 
+            // lbl_cpf
+            // 
+            this.lbl_cpf.AutoSize = true;
+            this.lbl_cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cpf.Location = new System.Drawing.Point(371, 47);
+            this.lbl_cpf.Name = "lbl_cpf";
+            this.lbl_cpf.Size = new System.Drawing.Size(30, 15);
+            this.lbl_cpf.TabIndex = 6;
+            this.lbl_cpf.Text = "cpf:";
+            // 
+            // lblnumQ
+            // 
+            this.lblnumQ.AutoSize = true;
+            this.lblnumQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnumQ.Location = new System.Drawing.Point(689, 46);
+            this.lblnumQ.Name = "lblnumQ";
+            this.lblnumQ.Size = new System.Drawing.Size(107, 15);
+            this.lblnumQ.TabIndex = 5;
+            this.lblnumQ.Text = "Dias de estadia";
+            // 
+            // lbl_desconto
+            // 
+            this.lbl_desconto.AutoSize = true;
+            this.lbl_desconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_desconto.Location = new System.Drawing.Point(16, 119);
+            this.lbl_desconto.Name = "lbl_desconto";
+            this.lbl_desconto.Size = new System.Drawing.Size(97, 15);
+            this.lbl_desconto.TabIndex = 4;
+            this.lbl_desconto.Text = "Descondo(%):";
+            // 
+            // lbl_CheckOu
+            // 
+            this.lbl_CheckOu.AutoSize = true;
+            this.lbl_CheckOu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_CheckOu.Location = new System.Drawing.Point(371, 84);
+            this.lbl_CheckOu.Name = "lbl_CheckOu";
+            this.lbl_CheckOu.Size = new System.Drawing.Size(76, 15);
+            this.lbl_CheckOu.TabIndex = 3;
+            this.lbl_CheckOu.Text = "Check Out:";
             // 
             // lbl_CheckIn
             // 
@@ -269,135 +364,151 @@
             this.lbl_CheckIn.TabIndex = 2;
             this.lbl_CheckIn.Text = "Check In:";
             // 
-            // lbl_CheckOu
+            // lblNome
             // 
-            this.lbl_CheckOu.AutoSize = true;
-            this.lbl_CheckOu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CheckOu.Location = new System.Drawing.Point(183, 84);
-            this.lbl_CheckOu.Name = "lbl_CheckOu";
-            this.lbl_CheckOu.Size = new System.Drawing.Size(76, 15);
-            this.lbl_CheckOu.TabIndex = 3;
-            this.lbl_CheckOu.Text = "Check Out:";
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Location = new System.Drawing.Point(16, 51);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(49, 15);
+            this.lblNome.TabIndex = 1;
+            this.lblNome.Text = "Nome:";
             // 
-            // lbl_desconto
+            // lbl_val
             // 
-            this.lbl_desconto.AutoSize = true;
-            this.lbl_desconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_desconto.Location = new System.Drawing.Point(16, 114);
-            this.lbl_desconto.Name = "lbl_desconto";
-            this.lbl_desconto.Size = new System.Drawing.Size(97, 15);
-            this.lbl_desconto.TabIndex = 4;
-            this.lbl_desconto.Text = "Descondo(%):";
+            this.lbl_val.AutoSize = true;
+            this.lbl_val.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_val.Location = new System.Drawing.Point(334, 1);
+            this.lbl_val.Name = "lbl_val";
+            this.lbl_val.Size = new System.Drawing.Size(219, 31);
+            this.lbl_val.TabIndex = 0;
+            this.lbl_val.Text = "Valores a pagar";
             // 
-            // lblnumQ
+            // button3
             // 
-            this.lblnumQ.AutoSize = true;
-            this.lblnumQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnumQ.Location = new System.Drawing.Point(640, 47);
-            this.lblnumQ.Name = "lblnumQ";
-            this.lblnumQ.Size = new System.Drawing.Size(136, 15);
-            this.lblnumQ.TabIndex = 5;
-            this.lblnumQ.Text = "Numero de Quartos:";
-            this.lblnumQ.Click += new System.EventHandler(this.lblnumQ_Click);
+            this.button3.Location = new System.Drawing.Point(586, 271);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // lbl_cpf
+            // lbl_aviso
             // 
-            this.lbl_cpf.AutoSize = true;
-            this.lbl_cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cpf.Location = new System.Drawing.Point(371, 47);
-            this.lbl_cpf.Name = "lbl_cpf";
-            this.lbl_cpf.Size = new System.Drawing.Size(30, 15);
-            this.lbl_cpf.TabIndex = 6;
-            this.lbl_cpf.Text = "cpf:";
-            this.lbl_cpf.Click += new System.EventHandler(this.lbl_cpf_Click);
+            this.lbl_aviso.AutoSize = true;
+            this.lbl_aviso.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_aviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_aviso.ForeColor = System.Drawing.Color.Red;
+            this.lbl_aviso.Location = new System.Drawing.Point(701, 54);
+            this.lbl_aviso.Name = "lbl_aviso";
+            this.lbl_aviso.Size = new System.Drawing.Size(168, 13);
+            this.lbl_aviso.TabIndex = 8;
+            this.lbl_aviso.Text = "O cpf pesquisado não existe";
+            this.lbl_aviso.Visible = false;
             // 
-            // label1
+            // pnl_CheckOut
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(640, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Total:";
+            this.pnl_CheckOut.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_CheckOut.Controls.Add(this.button3);
+            this.pnl_CheckOut.Controls.Add(this.lbl_aviso);
+            this.pnl_CheckOut.Controls.Add(this.panel1);
+            this.pnl_CheckOut.Controls.Add(this.button2);
+            this.pnl_CheckOut.Controls.Add(this.dataGridQuartos);
+            this.pnl_CheckOut.Controls.Add(this.button1);
+            this.pnl_CheckOut.Controls.Add(this.ck_lblCpf);
+            this.pnl_CheckOut.Controls.Add(this.txt_cpf);
+            this.pnl_CheckOut.Controls.Add(this.title_cadastro);
+            this.pnl_CheckOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_CheckOut.Location = new System.Drawing.Point(0, 0);
+            this.pnl_CheckOut.Name = "pnl_CheckOut";
+            this.pnl_CheckOut.Size = new System.Drawing.Size(1110, 602);
+            this.pnl_CheckOut.TabIndex = 0;
+            this.pnl_CheckOut.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_CheckOut_Paint);
             // 
-            // textBox1
+            // teste2DataSet
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(72, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(284, 20);
-            this.textBox1.TabIndex = 8;
+            this.teste2DataSet.DataSetName = "teste2DataSet";
+            this.teste2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // textBox2
+            // buscaBindingSource1
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(408, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(135, 20);
-            this.textBox2.TabIndex = 9;
+            this.buscaBindingSource1.DataMember = "Busca";
+            this.buscaBindingSource1.DataSource = this.teste2DataSet;
             // 
-            // textBox3
+            // buscaTableAdapter
             // 
-            this.textBox3.Location = new System.Drawing.Point(119, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(35, 20);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.Text = "0";
+            this.buscaTableAdapter.ClearBeforeFill = true;
             // 
-            // lbl_valor
+            // idQuartoDataGridViewTextBoxColumn
             // 
-            this.lbl_valor.AutoSize = true;
-            this.lbl_valor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_valor.Location = new System.Drawing.Point(690, 115);
-            this.lbl_valor.Name = "lbl_valor";
-            this.lbl_valor.Size = new System.Drawing.Size(92, 13);
-            this.lbl_valor.TabIndex = 11;
-            this.lbl_valor.Text = "VALOR TOTAL";
+            this.idQuartoDataGridViewTextBoxColumn.DataPropertyName = "idQuarto";
+            this.idQuartoDataGridViewTextBoxColumn.HeaderText = "idQuarto";
+            this.idQuartoDataGridViewTextBoxColumn.Name = "idQuartoDataGridViewTextBoxColumn";
+            this.idQuartoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // textBox4
+            // dataGridViewTextBoxColumn1
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(782, 46);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(31, 20);
-            this.textBox4.TabIndex = 12;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "idHospede";
+            this.dataGridViewTextBoxColumn1.HeaderText = "idHospede";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // maskedTextBox1
+            // numeroquartoDataGridViewTextBoxColumn
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(88, 79);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(77, 20);
-            this.maskedTextBox1.TabIndex = 13;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.numeroquartoDataGridViewTextBoxColumn.DataPropertyName = "numero_quarto";
+            this.numeroquartoDataGridViewTextBoxColumn.HeaderText = "numero_quarto";
+            this.numeroquartoDataGridViewTextBoxColumn.Name = "numeroquartoDataGridViewTextBoxColumn";
+            this.numeroquartoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // maskedTextBox2
+            // nomehospedeDataGridViewTextBoxColumn
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(265, 80);
-            this.maskedTextBox2.Mask = "00/00/0000 90:00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox2.TabIndex = 14;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.nomehospedeDataGridViewTextBoxColumn.DataPropertyName = "nome_hospede";
+            this.nomehospedeDataGridViewTextBoxColumn.HeaderText = "nome_hospede";
+            this.nomehospedeDataGridViewTextBoxColumn.Name = "nomehospedeDataGridViewTextBoxColumn";
+            this.nomehospedeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // btn_Pagar
+            // dataGridViewTextBoxColumn8
             // 
-            this.btn_Pagar.Location = new System.Drawing.Point(365, 143);
-            this.btn_Pagar.Name = "btn_Pagar";
-            this.btn_Pagar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Pagar.TabIndex = 15;
-            this.btn_Pagar.Text = "Pagar";
-            this.btn_Pagar.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "cpf";
+            this.dataGridViewTextBoxColumn8.HeaderText = "cpf";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
-            // btn_cancel
+            // statusdepagamentoDataGridViewTextBoxColumn
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(447, 143);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 16;
-            this.btn_cancel.Text = "Cancelar";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.statusdepagamentoDataGridViewTextBoxColumn.DataPropertyName = "status_de_pagamento";
+            this.statusdepagamentoDataGridViewTextBoxColumn.HeaderText = "status_de_pagamento";
+            this.statusdepagamentoDataGridViewTextBoxColumn.Name = "statusdepagamentoDataGridViewTextBoxColumn";
+            this.statusdepagamentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "tipo_de_quarto";
+            this.dataGridViewTextBoxColumn9.HeaderText = "tipo_de_quarto";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "status_quarto";
+            this.dataGridViewTextBoxColumn10.HeaderText = "status_quarto";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataentradaDataGridViewTextBoxColumn
+            // 
+            this.dataentradaDataGridViewTextBoxColumn.DataPropertyName = "data_entrada";
+            this.dataentradaDataGridViewTextBoxColumn.HeaderText = "data_entrada";
+            this.dataentradaDataGridViewTextBoxColumn.Name = "dataentradaDataGridViewTextBoxColumn";
+            this.dataentradaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // datasaidaDataGridViewTextBoxColumn
+            // 
+            this.datasaidaDataGridViewTextBoxColumn.DataPropertyName = "data_saida";
+            this.datasaidaDataGridViewTextBoxColumn.HeaderText = "data_saida";
+            this.datasaidaDataGridViewTextBoxColumn.Name = "datasaidaDataGridViewTextBoxColumn";
+            this.datasaidaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // CheckOutHospede
             // 
@@ -409,55 +520,70 @@
             this.Name = "CheckOutHospede";
             this.Text = "CheckOutHospede";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuartos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quartosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
-            this.pnl_CheckOut.ResumeLayout(false);
-            this.pnl_CheckOut.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnl_CheckOut.ResumeLayout(false);
+            this.pnl_CheckOut.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teste2DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscaBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridViewTextBoxColumn idquartoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomedohospedeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipodoquartoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataEntradaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataSaidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label title_cadastro;
         private System.Windows.Forms.TextBox txt_cpf;
         private System.Windows.Forms.Label ck_lblCpf;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridQuartos;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel pnl_CheckOut;
-        private hotelDataSet hotelDataSet;
-        private System.Windows.Forms.BindingSource quartosBindingSource;
-        private hotelDataSetTableAdapters.quartosTableAdapter quartosTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpfhospedeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idHospedeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpfDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipodequartoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusquartoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_statusQ;
+        private System.Windows.Forms.Label lbl_status;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_Pagar;
+        private System.Windows.Forms.MaskedTextBox mskCheckInOut;
+        private System.Windows.Forms.MaskedTextBox mskCheckIn;
+        private System.Windows.Forms.TextBox txt_num;
+        private System.Windows.Forms.Label lbl_valor;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.TextBox txt_nome;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_cpf;
+        private System.Windows.Forms.Label lblnumQ;
         private System.Windows.Forms.Label lbl_desconto;
         private System.Windows.Forms.Label lbl_CheckOu;
         private System.Windows.Forms.Label lbl_CheckIn;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lbl_val;
-        private System.Windows.Forms.Label lblnumQ;
-        private System.Windows.Forms.Label lbl_cpf;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label lbl_valor;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.Button btn_Pagar;
+        private System.Windows.Forms.Label lbl_aviso;
+        private System.Windows.Forms.Panel pnl_CheckOut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idQuartoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroquartoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomehospedeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusdepagamentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataentradaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datasaidaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource buscaBindingSource1;
+        private teste2DataSet teste2DataSet;
+        private teste2DataSetTableAdapters.BuscaTableAdapter buscaTableAdapter;
     }
 }

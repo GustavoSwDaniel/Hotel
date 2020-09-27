@@ -15,11 +15,12 @@ namespace sistemaHoteleiro.models
         public DateTime dataS          { get;  set; }
         public string numeroDeQuartos { get; set; }
         public string numeroDoQuarto { get; set; }
+        public bool statusPagamento { get; set; }
 
 
 
 
-        public Hospedes(string nc, string email, string tell, string cell, string cpf, string cep, string cidade, string estado, DateTime dataN, string timQ, string numeroDeQuartos, string numeroDoQuarto, DateTime dataE, DateTime dataS)
+        public Hospedes(string nc, string email, string tell, string cell, string cpf, string cep, string cidade, string estado, DateTime dataN, string timQ, string numeroDeQuartos, string numeroDoQuarto, DateTime dataE, DateTime dataS, bool statusPay)
         {
             this.nomeCompleto = nc;
             this.email = email;
@@ -35,6 +36,7 @@ namespace sistemaHoteleiro.models
             this.numeroDoQuarto = numeroDoQuarto;
             this.dataE = dataE;
             this.dataS = dataS;
+            this.statusPagamento = statusPay;
         }
 
 

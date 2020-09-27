@@ -4,8 +4,7 @@ use hotel;
 
 
 /*Criancao das Tabelas*/
-create table funcionarios
-(
+create table funcionarios(
 	id INTEGER IDENTITY(1001,1) PRIMARY KEY NOT NULL,
 	Nome varchar(50) NOT NULL,
 	email varchar(50) NOT NULL,
@@ -46,6 +45,7 @@ create table quartos
 	cpf_hospede varchar(11),
 	nome_do_hospede varchar(50),
 	tipo_do_quarto varchar(50),
+	status_de_pagamento varchar(20),
 	dataEntrada date,
 	dataSaida date
 );
@@ -54,7 +54,8 @@ create table registrosQuartos
 (
 	numero_do_quarto int PRIMARY KEY,
 	tipo_de_quarto varchar(50),
-	status_quarto varchar(20)
+	valor_do_quarto smallmoney,
+	status_quarto varchar(20),
 );
 
 
@@ -64,7 +65,6 @@ select * from funcionarios;
 select * from hospedes;
 select * from quartos;
 select * from registrosQuartos;
-
 
 
 
@@ -87,6 +87,10 @@ as
 	from
 		registrosQuartos
 	where status_quarto = 'vazio' or  status_quarto = 'broken';
+
+create view quartosPreços(
+
+
 
 drop view registroQuartosCompleto;
 select * from registroQuartosCompleto;
@@ -122,5 +126,17 @@ select * from funcionarios;
 select * from hospedes;
 select * from quartos;
 select * from registrosQuartos;
+
+
+DELETE FROM quartos where id_quarto = 4;
+
+
+insert into teste(teste)
+VALUES ('Oi');
+select @@IDENTITY as 'Identity';
+
+insert into registrosQuartos(numero_do_quarto, tipo_de_quarto, valor_do_quarto, status_quarto)
+values (6, 'Quarto solteiro', 35, 'vazio');
+select @@IDENTITY as 'Identity';
 
 

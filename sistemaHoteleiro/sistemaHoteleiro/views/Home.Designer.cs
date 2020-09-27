@@ -36,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel_buttons = new System.Windows.Forms.Panel();
+            this.btn_ListarHospede = new System.Windows.Forms.Button();
             this.btn_Admin = new System.Windows.Forms.Button();
             this.btn_checkOu = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1110, 636);
             this.panelPrincipal.TabIndex = 5;
+            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // Header
             // 
@@ -133,6 +135,7 @@
             // 
             // panel_buttons
             // 
+            this.panel_buttons.Controls.Add(this.btn_ListarHospede);
             this.panel_buttons.Controls.Add(this.btn_Admin);
             this.panel_buttons.Controls.Add(this.btn_checkOu);
             this.panel_buttons.Controls.Add(this.btn_logout);
@@ -143,6 +146,23 @@
             this.panel_buttons.Size = new System.Drawing.Size(148, 463);
             this.panel_buttons.TabIndex = 5;
             // 
+            // btn_ListarHospede
+            // 
+            this.btn_ListarHospede.BackColor = System.Drawing.Color.Transparent;
+            this.btn_ListarHospede.FlatAppearance.BorderSize = 0;
+            this.btn_ListarHospede.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ListarHospede.ForeColor = System.Drawing.Color.White;
+            this.btn_ListarHospede.Image = global::sistemaHoteleiro.Properties.Resources.list;
+            this.btn_ListarHospede.Location = new System.Drawing.Point(2, 208);
+            this.btn_ListarHospede.Name = "btn_ListarHospede";
+            this.btn_ListarHospede.Size = new System.Drawing.Size(143, 56);
+            this.btn_ListarHospede.TabIndex = 8;
+            this.btn_ListarHospede.Text = "Listas";
+            this.btn_ListarHospede.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_ListarHospede.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_ListarHospede.UseVisualStyleBackColor = false;
+            this.btn_ListarHospede.Click += new System.EventHandler(this.btn_ListarHospede_Click);
+            // 
             // btn_Admin
             // 
             this.btn_Admin.BackColor = System.Drawing.Color.Transparent;
@@ -151,7 +171,7 @@
             this.btn_Admin.ForeColor = System.Drawing.Color.White;
             this.btn_Admin.Image = global::sistemaHoteleiro.Properties.Resources.administracao_2;
             this.btn_Admin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Admin.Location = new System.Drawing.Point(3, 199);
+            this.btn_Admin.Location = new System.Drawing.Point(2, 270);
             this.btn_Admin.Name = "btn_Admin";
             this.btn_Admin.Size = new System.Drawing.Size(143, 65);
             this.btn_Admin.TabIndex = 7;
@@ -273,5 +293,6 @@
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Button btn_voltar;
         private System.Windows.Forms.Button btn_Admin;
+        private System.Windows.Forms.Button btn_ListarHospede;
     }
 }

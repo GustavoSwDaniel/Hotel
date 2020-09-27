@@ -96,6 +96,17 @@ namespace sistemaHoteleiro.pages
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
+            bool status_pagamento;
+
+            if (cbPagamentos.Checked)
+            {
+                status_pagamento = true;
+            }
+            else
+            {
+                status_pagamento = false;
+            }
+
             bool resp = !string.IsNullOrWhiteSpace(txt_nome.Text) &&
                       !string.IsNullOrWhiteSpace(txt_email.Text) &&
                       !string.IsNullOrWhiteSpace(mtxt_cpf.Text) &&
@@ -129,11 +140,12 @@ namespace sistemaHoteleiro.pages
                 DateTime dataEn = dataE.Value;
                 DateTime dataSa = dataS.Value;
 
-                Hospedes hp = new Hospedes(nomeCompleto, email, tell, cell, cpf, cep, cidade, estado, dataNas, timQ, numeroDeQuartos, numeroDoQuarto, dataEn, dataSa);
+                Hospedes hp = new Hospedes(nomeCompleto, email, tell, cell, cpf, cep, cidade, estado, dataNas, timQ, numeroDeQuartos, numeroDoQuarto, dataEn, dataSa, status_pagamento);
                 HospedeController hc = new HospedeController();
                 if (hc.InserirHospede(hp))
                 {
-
+                    MessageBox.Show("Cadastro Realizado com sucesso!", "Aviso", MessageBoxButtons.OK);
+                    limpar();
                 }
             }
             else
@@ -142,12 +154,34 @@ namespace sistemaHoteleiro.pages
             }
         }
 
+        private void limpar()
+        {
+            txt_nome.Clear();
+            txt_email.Clear();
+            mtxt_telefone.Clear();
+            mtxt_cpf.Clear();
+            txt_cep.Clear();
+            txt_cidade.Clear();
+            txt_estado.Clear();
+            txt_nome.Focus();
+        }
+
         private void btn_limpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+
+        private void panel_cadastroH_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+        private void cbPagamentos_CheckStateChanged(object sender, EventArgs e)
+        {
+           
 
 
+           
+        }
     }
 }

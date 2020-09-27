@@ -24,7 +24,7 @@ namespace sistemaHoteleiro.Dal
         private bool verificarcpfdb(string cpf)
         {
             cmd.Connection = con.Conectar();
-            cmd.CommandText = @"SELECT cpf FROM funcionarios WHERE cpf=@cpf";
+            cmd.CommandText = @"SELECT cpf FROM funcionario WHERE cpf=@cpf";
             cmd.Parameters.AddWithValue("@cpf", cpf);
             SqlDataReader read = cmd.ExecuteReader();
 
@@ -51,7 +51,7 @@ namespace sistemaHoteleiro.Dal
                 try
                 {
                     cmd.Connection = con.Conectar();
-                    cmd.CommandText = @"SELECT senha FROM funcionarios WHERE cpf=@cpfS;";
+                    cmd.CommandText = @"SELECT senha FROM funcionario WHERE cpf=@cpfS;";
                     cmd.Parameters.AddWithValue("@cpfS", login);
                     MessageBox.Show("Entrei");
                     dr = cmd.ExecuteReader();

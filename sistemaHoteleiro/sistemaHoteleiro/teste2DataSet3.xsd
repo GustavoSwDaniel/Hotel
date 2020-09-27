@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="teste2DataSet" targetNamespace="http://tempuri.org/teste2DataSet3.xsd" xmlns:mstns="http://tempuri.org/teste2DataSet3.xsd" xmlns="http://tempuri.org/teste2DataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HotelConnectionStringV2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HotelConnectionStringV2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.sistemaHoteleiro.Properties.Settings.GlobalReference.Default.HotelConnectionStringV2" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="checkOutViewTableAdapter" GeneratorDataComponentClassName="checkOutViewTableAdapter" Name="checkOutView" UserDataComponentName="checkOutViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelConnectionStringV2 (Settings)" DbObjectName="teste2.dbo.checkOutView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idQuarto, idHospede, numero_quarto, nome_hospede, cpf, status_de_pagamento, tipo_de_quarto, status_quarto, data_entrada, data_saida FROM dbo.checkOutView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idQuarto" DataSetColumn="idQuarto" />
+              <Mapping SourceColumn="idHospede" DataSetColumn="idHospede" />
+              <Mapping SourceColumn="numero_quarto" DataSetColumn="numero_quarto" />
+              <Mapping SourceColumn="nome_hospede" DataSetColumn="nome_hospede" />
+              <Mapping SourceColumn="cpf" DataSetColumn="cpf" />
+              <Mapping SourceColumn="status_de_pagamento" DataSetColumn="status_de_pagamento" />
+              <Mapping SourceColumn="tipo_de_quarto" DataSetColumn="tipo_de_quarto" />
+              <Mapping SourceColumn="status_quarto" DataSetColumn="status_quarto" />
+              <Mapping SourceColumn="data_entrada" DataSetColumn="data_entrada" />
+              <Mapping SourceColumn="data_saida" DataSetColumn="data_saida" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="teste2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="teste2DataSet" msprop:Generator_UserDSName="teste2DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="checkOutView" msprop:Generator_TableClassName="checkOutViewDataTable" msprop:Generator_TableVarName="tablecheckOutView" msprop:Generator_TablePropName="checkOutView" msprop:Generator_RowDeletingName="checkOutViewRowDeleting" msprop:Generator_RowChangingName="checkOutViewRowChanging" msprop:Generator_RowEvHandlerName="checkOutViewRowChangeEventHandler" msprop:Generator_RowDeletedName="checkOutViewRowDeleted" msprop:Generator_UserTableName="checkOutView" msprop:Generator_RowChangedName="checkOutViewRowChanged" msprop:Generator_RowEvArgName="checkOutViewRowChangeEvent" msprop:Generator_RowClassName="checkOutViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idQuarto" msprop:Generator_ColumnVarNameInTable="columnidQuarto" msprop:Generator_ColumnPropNameInRow="idQuarto" msprop:Generator_ColumnPropNameInTable="idQuartoColumn" msprop:Generator_UserColumnName="idQuarto" type="xs:int" />
+              <xs:element name="idHospede" msprop:Generator_ColumnVarNameInTable="columnidHospede" msprop:Generator_ColumnPropNameInRow="idHospede" msprop:Generator_ColumnPropNameInTable="idHospedeColumn" msprop:Generator_UserColumnName="idHospede" type="xs:int" />
+              <xs:element name="numero_quarto" msprop:Generator_ColumnVarNameInTable="columnnumero_quarto" msprop:Generator_ColumnPropNameInRow="numero_quarto" msprop:Generator_ColumnPropNameInTable="numero_quartoColumn" msprop:Generator_UserColumnName="numero_quarto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nome_hospede" msprop:Generator_ColumnVarNameInTable="columnnome_hospede" msprop:Generator_ColumnPropNameInRow="nome_hospede" msprop:Generator_ColumnPropNameInTable="nome_hospedeColumn" msprop:Generator_UserColumnName="nome_hospede">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cpf" msprop:Generator_ColumnVarNameInTable="columncpf" msprop:Generator_ColumnPropNameInRow="cpf" msprop:Generator_ColumnPropNameInTable="cpfColumn" msprop:Generator_UserColumnName="cpf">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="status_de_pagamento" msprop:Generator_ColumnVarNameInTable="columnstatus_de_pagamento" msprop:Generator_ColumnPropNameInRow="status_de_pagamento" msprop:Generator_ColumnPropNameInTable="status_de_pagamentoColumn" msprop:Generator_UserColumnName="status_de_pagamento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipo_de_quarto" msprop:Generator_ColumnVarNameInTable="columntipo_de_quarto" msprop:Generator_ColumnPropNameInRow="tipo_de_quarto" msprop:Generator_ColumnPropNameInTable="tipo_de_quartoColumn" msprop:Generator_UserColumnName="tipo_de_quarto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="status_quarto" msprop:Generator_ColumnVarNameInTable="columnstatus_quarto" msprop:Generator_ColumnPropNameInRow="status_quarto" msprop:Generator_ColumnPropNameInTable="status_quartoColumn" msprop:Generator_UserColumnName="status_quarto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="data_entrada" msprop:Generator_ColumnVarNameInTable="columndata_entrada" msprop:Generator_ColumnPropNameInRow="data_entrada" msprop:Generator_ColumnPropNameInTable="data_entradaColumn" msprop:Generator_UserColumnName="data_entrada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="data_saida" msprop:Generator_ColumnVarNameInTable="columndata_saida" msprop:Generator_ColumnPropNameInRow="data_saida" msprop:Generator_ColumnPropNameInTable="data_saidaColumn" msprop:Generator_UserColumnName="data_saida" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
