@@ -25,33 +25,6 @@ namespace sistemaHoteleiro
             InitializeComponent();
         }
 
-        private void Recurprar_senha_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_email_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        public bool ValidaEmail(string email)
-        {
-
-            bool validacao = email.Contains("@") && email.Contains(".com");
-
-            if (validacao == true)
-            {
-                return true;
-            }               
-            return false;
-            
-        }
 
         public void enviar_email(string email)
         {
@@ -60,7 +33,7 @@ namespace sistemaHoteleiro
 
             mail.From = new MailAddress("hoteleirosistema@gmail.com");
             mail.To.Add(email); // para
-            mail.Subject = "Teste"; // assunto
+            mail.Subject = "Alteração de senha"; // assunto
             mail.Body = "Codigo de verficação para troca de senha " + tokens + " Caso não tenha solicidade apenas ignore"; // mensagem
             using (var smtp = new SmtpClient("smtp.gmail.com"))
             {
@@ -144,16 +117,6 @@ namespace sistemaHoteleiro
             {
                 MessageBox.Show("Codigo Invalido!!");
             }
-        }
-
-        private void panel_code_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void painel_recuperar_senha_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btn_atualizar_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Correios;
+using Correios.CorreiosServiceReference;
 using sistemaHoteleiro.Controllers;
 using sistemaHoteleiro.models;
 using sistemaHoteleiro.pages;
@@ -34,29 +35,20 @@ namespace sistemaHoteleiro
 
         private void txt_cep_Leave(object sender, EventArgs e)
         {
-            if ((txt_cep.TextLength == 8) && !string.IsNullOrEmpty(txt_cep.Text))
+            try
             {
-                try
-                {
-                    CorreiosApi correiosApi = new CorreiosApi();
-                    var retorno = correiosApi.consultaCEP(txt_cep.Text);
+                CorreiosApi correiosApi = new CorreiosApi();
+                var retorno = correiosApi.consultaCEP(txt_cep.Text);
 
-                    txt_cidade.Text = retorno.cidade;
-                    txt_estado.Text = retorno.uf;
+                txt_estado.Text = retorno.uf;
+                txt_cidade.Text = retorno.cidade;
 
-                    lbl_vazio.Visible = false;
-                    
-
-                }
-                catch(Exception )
-                {
-                    lbl_vazio.Visible = true;
-                    txt_cep.Clear();
-                }
+                lbl_vazio.Visible = false;
             }
-            else
+            catch (System.Exception)
             {
                 lbl_vazio.Visible = true;
+                txt_cep.Clear();
             }
         }
 
@@ -79,7 +71,9 @@ namespace sistemaHoteleiro
                       !string.IsNullOrWhiteSpace(cb_cargo.Text) &&
                       !string.IsNullOrWhiteSpace(dataN.Text);
 
-            if(resp == true)
+            bool verifica = Validacao.ValidaCPF.IsCpf(mtxt_cpf.Text);
+
+            if (resp && verifica)
             {
                 string nomeCompleto = txt_nome.Text;
                 string email = txt_email.Text;
@@ -113,11 +107,6 @@ namespace sistemaHoteleiro
 
         }
 
-        private void CadastroFuncionario_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void txt_email_Leave(object sender, EventArgs e)
         {
             bool teste = Validacao.ValidaCPF.ValidarEmail(txt_email.Text);
@@ -126,12 +115,40 @@ namespace sistemaHoteleiro
             else
                 lbl_avisoE.Visible = false;
         }
+
+        private void mtxt_cpf_Leave(object sender, EventArgs e)
+        {
+            string cpf = mtxt_cpf.Text;
+
+
+            if (!Validacao.ValidaCPF.IsCpf(cpf))
+            {
+                lbl_cpfInvalido.Visible = true;
+                mtxt_cpf.Clear();
+            }
+            else
+            {
+                lbl_cpfInvalido.Visible = false;
+            }
+        }
+        private void limpar()
+        {
+            txt_nome.Clear();
+            txt_email.Clear();
+            txt_senha.Clear();
+            mtxt_telefone.Clear();
+            mtxt_celular.Clear();
+            mtxt_cpf.Clear();
+            txt_cep.Clear();
+            txt_cidade.Clear();
+            txt_estado.Clear();
+            txt_rua.Clear();
+            txt_salario.Clear();
+            txt_nome.Focus();
+        }
+        private void btn_limpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
     }
 }
-/*Hash hs = new Hash();
-           string hash = hs.BhashPassword(txt_senha.Text);
-           bool teste = hs.BhashVerify(txt_csenha.Text, hash);
-           if (teste)
-               MessageBox.Show("Senhas são iguais");
-           else
-               MessageBox.Show("Senhas são difrentes");*/

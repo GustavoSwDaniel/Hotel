@@ -37,6 +37,31 @@ namespace sistemaHoteleiro.Dal
             return false;
         }
 
+        public string privilegio(string cpf)
+        {
+            try
+            {
+                cmd.Connection = con.Conectar();
+                cmd.CommandText = @"SELECT cargo FROM funcionario WHERE cpf=@cpfS;";
+                cmd.Parameters.AddWithValue("@cpfS", cpf);
+                SqlDataReader read = cmd.ExecuteReader();
+                if(read.Read())
+                {
+                    string cargo = read[0].ToString();
+                    cmd.Dispose();
+                    con.desconectar();
+                    return cargo;
+                }
+                return null;
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Error" + ex);
+                cmd.Dispose();
+                con.desconectar();
+                return null;
+            }
+        }
 
 
         public bool verificarLogin(string login, string senha)
@@ -53,23 +78,24 @@ namespace sistemaHoteleiro.Dal
                     cmd.Connection = con.Conectar();
                     cmd.CommandText = @"SELECT senha FROM funcionario WHERE cpf=@cpfS;";
                     cmd.Parameters.AddWithValue("@cpfS", login);
-                    MessageBox.Show("Entrei");
                     dr = cmd.ExecuteReader();
                     DataTable pwh = new DataTable();
                     pwh.Load(dr);
                     string hash = (string)pwh.Rows[0][0];
                     Hash hs = new Hash();
-                    MessageBox.Show("Alo" + senha + hash);
-
                     bool res = hs.BhashVerify(senha, hash);
                     if (res) // se foi encontrado
                     {
+                        cmd.Dispose();
+                        con.desconectar();
                         tem = true;
                     }
                     return tem;
                 }
                 catch(SqlException ex)
                 {
+                    cmd.Dispose();
+                    con.desconectar();
                     MessageBox.Show("Erro: " + ex);
                     return false;
                 }

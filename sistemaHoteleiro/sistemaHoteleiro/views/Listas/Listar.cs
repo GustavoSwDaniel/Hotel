@@ -33,5 +33,10 @@ namespace sistemaHoteleiro.views
         {
             AbrirFormaInPainel(new ListarHospedes());
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirFormaInPainel(new ListarQuartos());
+        }
     }
 }

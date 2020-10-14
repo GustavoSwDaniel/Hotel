@@ -18,12 +18,15 @@ namespace sistemaHoteleiro
     public partial class Hotel : MetroFramework.Forms.MetroForm
     {
 
-
+        public string cargo;
         
         public Hotel()
         {
             InitializeComponent();
+      
             AbrirFormaInPainel(new TelaInicial());
+            data.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
         }
 
         
@@ -79,7 +82,15 @@ namespace sistemaHoteleiro
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            txt_cargo.Text = cargo;
+            if (txt_cargo.Text.Equals("admin") || txt_cargo.Text.Equals("Gerente"))
+            {
+                btn_Admin.Visible = true;
+            }
+            else
+            {
+                btn_Admin.Visible = false;
+            }
         }
 
         private void btn_Admin_Click(object sender, EventArgs e)
@@ -88,14 +99,14 @@ namespace sistemaHoteleiro
             AbrirFormaInPainel(new Administrativo());
         }
 
-        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_ListarHospede_Click(object sender, EventArgs e)
         {
             AbrirFormaInPainel(new Listar());
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            hora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

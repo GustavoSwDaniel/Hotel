@@ -53,11 +53,6 @@ namespace sistemaHoteleiro.views
             }
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;

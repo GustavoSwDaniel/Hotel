@@ -71,7 +71,7 @@ namespace sistemaHoteleiro.Controllers
         {
             cmd.Connection = Con.Conectar();
             cmd.CommandText = @"SELECT cpf FROM funcionario WHERE cpf=@cpf_f ";
-            cmd.Parameters.AddWithValue("cpf_f", cpf);
+            cmd.Parameters.AddWithValue("@cpf_f", cpf);
             SqlDataReader read = cmd.ExecuteReader();
 
             if(read.Read())

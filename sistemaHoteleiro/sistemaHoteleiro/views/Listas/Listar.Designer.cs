@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_ListaHospede = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +46,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1094, 563);
             this.panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(2, 83);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1092, 480);
+            this.panel3.TabIndex = 1;
             // 
             // panel2
             // 
@@ -71,6 +78,7 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_ListaHospede
             // 
@@ -87,13 +95,6 @@
             this.btn_ListaHospede.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_ListaHospede.UseVisualStyleBackColor = true;
             this.btn_ListaHospede.Click += new System.EventHandler(this.btn_ListaHospede_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(2, 83);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1092, 480);
-            this.panel3.TabIndex = 1;
             // 
             // Listar
             // 

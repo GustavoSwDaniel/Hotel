@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnExcluirFunc = new System.Windows.Forms.Button();
             this.btn_funcionario = new System.Windows.Forms.Button();
             this.btn_CadastroF = new System.Windows.Forms.Button();
             this.btn_cadastrarQuarto = new System.Windows.Forms.Button();
@@ -55,12 +55,11 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1094, 482);
             this.panel3.TabIndex = 12;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btnExcluirFunc);
             this.panel2.Controls.Add(this.btn_funcionario);
             this.panel2.Controls.Add(this.btn_CadastroF);
             this.panel2.Controls.Add(this.btn_cadastrarQuarto);
@@ -69,21 +68,22 @@
             this.panel2.Size = new System.Drawing.Size(1094, 82);
             this.panel2.TabIndex = 11;
             // 
-            // button3
+            // btnExcluirFunc
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Image = global::sistemaHoteleiro.Properties.Resources.disparamos;
-            this.button3.Location = new System.Drawing.Point(269, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 65);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Excluir Funcionario";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnExcluirFunc.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcluirFunc.FlatAppearance.BorderSize = 0;
+            this.btnExcluirFunc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirFunc.ForeColor = System.Drawing.Color.Black;
+            this.btnExcluirFunc.Image = global::sistemaHoteleiro.Properties.Resources.disparamos;
+            this.btnExcluirFunc.Location = new System.Drawing.Point(269, 8);
+            this.btnExcluirFunc.Name = "btnExcluirFunc";
+            this.btnExcluirFunc.Size = new System.Drawing.Size(128, 65);
+            this.btnExcluirFunc.TabIndex = 13;
+            this.btnExcluirFunc.Text = "Excluir Funcionario";
+            this.btnExcluirFunc.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExcluirFunc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcluirFunc.UseVisualStyleBackColor = true;
+            this.btnExcluirFunc.Click += new System.EventHandler(this.btnExcluirFunc_Click);
             // 
             // btn_funcionario
             // 
@@ -159,6 +159,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_funcionario;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnExcluirFunc;
     }
 }

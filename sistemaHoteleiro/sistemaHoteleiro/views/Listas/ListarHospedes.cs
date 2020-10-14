@@ -30,11 +30,6 @@ namespace sistemaHoteleiro.views.Listas
 
         }
 
-        private void dataGridHospede_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             
@@ -76,12 +71,6 @@ namespace sistemaHoteleiro.views.Listas
         {
             antigo = dataGridHospede.CurrentRow.Cells[3].Value.ToString();
             nomeDaColuna = dataGridHospede.Columns[e.ColumnIndex].Name;
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
 
         }
     }

@@ -39,17 +39,17 @@
             this.lbl_valorDiaria = new System.Windows.Forms.Label();
             this.txtValorDiaria = new System.Windows.Forms.TextBox();
             this.dataGridQuartos = new System.Windows.Forms.DataGridView();
-            this.btn_Salvar = new System.Windows.Forms.Button();
-            this.quartos = new sistemaHoteleiro.Quartos();
-            this.registrosQuartosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.registrosQuartosTableAdapter = new sistemaHoteleiro.QuartosTableAdapters.registrosQuartosTableAdapter();
             this.numerodoquartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipodequartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valordoquartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusquartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrosQuartosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quartos = new sistemaHoteleiro.Quartos();
+            this.btn_Salvar = new System.Windows.Forms.Button();
+            this.registrosQuartosTableAdapter = new sistemaHoteleiro.QuartosTableAdapters.registrosQuartosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuartos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quartos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrosQuartosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quartos)).BeginInit();
             this.SuspendLayout();
             // 
             // title_cadastro
@@ -154,32 +154,7 @@
             this.dataGridQuartos.Name = "dataGridQuartos";
             this.dataGridQuartos.Size = new System.Drawing.Size(525, 232);
             this.dataGridQuartos.TabIndex = 32;
-            this.dataGridQuartos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridQuartos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridQuartos_KeyDown);
-            // 
-            // btn_Salvar
-            // 
-            this.btn_Salvar.Location = new System.Drawing.Point(819, 306);
-            this.btn_Salvar.Name = "btn_Salvar";
-            this.btn_Salvar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Salvar.TabIndex = 33;
-            this.btn_Salvar.Text = "Salva";
-            this.btn_Salvar.UseVisualStyleBackColor = true;
-            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
-            // 
-            // quartos
-            // 
-            this.quartos.DataSetName = "Quartos";
-            this.quartos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registrosQuartosBindingSource
-            // 
-            this.registrosQuartosBindingSource.DataMember = "registrosQuartos";
-            this.registrosQuartosBindingSource.DataSource = this.quartos;
-            // 
-            // registrosQuartosTableAdapter
-            // 
-            this.registrosQuartosTableAdapter.ClearBeforeFill = true;
             // 
             // numerodoquartoDataGridViewTextBoxColumn
             // 
@@ -205,6 +180,30 @@
             this.statusquartoDataGridViewTextBoxColumn.HeaderText = "status_quarto";
             this.statusquartoDataGridViewTextBoxColumn.Name = "statusquartoDataGridViewTextBoxColumn";
             // 
+            // registrosQuartosBindingSource
+            // 
+            this.registrosQuartosBindingSource.DataMember = "registrosQuartos";
+            this.registrosQuartosBindingSource.DataSource = this.quartos;
+            // 
+            // quartos
+            // 
+            this.quartos.DataSetName = "Quartos";
+            this.quartos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btn_Salvar
+            // 
+            this.btn_Salvar.Location = new System.Drawing.Point(819, 306);
+            this.btn_Salvar.Name = "btn_Salvar";
+            this.btn_Salvar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Salvar.TabIndex = 33;
+            this.btn_Salvar.Text = "Salva";
+            this.btn_Salvar.UseVisualStyleBackColor = true;
+            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
+            // 
+            // registrosQuartosTableAdapter
+            // 
+            this.registrosQuartosTableAdapter.ClearBeforeFill = true;
+            // 
             // CadastroDeQuartos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,8 +225,8 @@
             this.Text = "CadastroDeQuartos";
             this.Load += new System.EventHandler(this.CadastroDeQuartos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridQuartos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quartos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrosQuartosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quartos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

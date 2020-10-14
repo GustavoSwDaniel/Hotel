@@ -39,12 +39,12 @@
             this.txt_code = new System.Windows.Forms.TextBox();
             this.lbl_code = new System.Windows.Forms.Label();
             this.panel_recuperacao = new System.Windows.Forms.Panel();
+            this.aviso = new System.Windows.Forms.Label();
+            this.confirma_novaSenhaTxt = new System.Windows.Forms.TextBox();
+            this.confirmado_nova = new System.Windows.Forms.Label();
             this.btn_atualizar = new System.Windows.Forms.Button();
             this.nova_senhaTxt = new System.Windows.Forms.TextBox();
             this.novaSenha = new System.Windows.Forms.Label();
-            this.confirma_novaSenhaTxt = new System.Windows.Forms.TextBox();
-            this.confirmado_nova = new System.Windows.Forms.Label();
-            this.aviso = new System.Windows.Forms.Label();
             this.painel_recuperar_senha.SuspendLayout();
             this.panel_code.SuspendLayout();
             this.panel_recuperacao.SuspendLayout();
@@ -69,7 +69,6 @@
             this.painel_recuperar_senha.Name = "painel_recuperar_senha";
             this.painel_recuperar_senha.Size = new System.Drawing.Size(459, 103);
             this.painel_recuperar_senha.TabIndex = 5;
-            this.painel_recuperar_senha.Paint += new System.Windows.Forms.PaintEventHandler(this.painel_recuperar_senha_Paint);
             // 
             // label1
             // 
@@ -113,12 +112,11 @@
             this.panel_code.Controls.Add(this.btn_verificar_token);
             this.panel_code.Controls.Add(this.txt_code);
             this.panel_code.Controls.Add(this.lbl_code);
-            this.panel_code.Location = new System.Drawing.Point(0, 62);
+            this.panel_code.Location = new System.Drawing.Point(1, 61);
             this.panel_code.Name = "panel_code";
             this.panel_code.Size = new System.Drawing.Size(459, 103);
             this.panel_code.TabIndex = 7;
             this.panel_code.Visible = false;
-            this.panel_code.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_code_Paint);
             // 
             // btn_verificar_token
             // 
@@ -154,11 +152,39 @@
             this.panel_recuperacao.Controls.Add(this.btn_atualizar);
             this.panel_recuperacao.Controls.Add(this.nova_senhaTxt);
             this.panel_recuperacao.Controls.Add(this.novaSenha);
-            this.panel_recuperacao.Location = new System.Drawing.Point(0, 57);
+            this.panel_recuperacao.Location = new System.Drawing.Point(1, 64);
             this.panel_recuperacao.Name = "panel_recuperacao";
             this.panel_recuperacao.Size = new System.Drawing.Size(459, 103);
             this.panel_recuperacao.TabIndex = 8;
             this.panel_recuperacao.Visible = false;
+            // 
+            // aviso
+            // 
+            this.aviso.AutoSize = true;
+            this.aviso.ForeColor = System.Drawing.Color.Red;
+            this.aviso.Location = new System.Drawing.Point(298, 47);
+            this.aviso.Name = "aviso";
+            this.aviso.Size = new System.Drawing.Size(119, 13);
+            this.aviso.TabIndex = 5;
+            this.aviso.Text = "As senha não conferem";
+            this.aviso.Visible = false;
+            // 
+            // confirma_novaSenhaTxt
+            // 
+            this.confirma_novaSenhaTxt.Location = new System.Drawing.Point(192, 41);
+            this.confirma_novaSenhaTxt.Name = "confirma_novaSenhaTxt";
+            this.confirma_novaSenhaTxt.Size = new System.Drawing.Size(100, 20);
+            this.confirma_novaSenhaTxt.TabIndex = 4;
+            this.confirma_novaSenhaTxt.UseSystemPasswordChar = true;
+            // 
+            // confirmado_nova
+            // 
+            this.confirmado_nova.AutoSize = true;
+            this.confirmado_nova.Location = new System.Drawing.Point(59, 47);
+            this.confirmado_nova.Name = "confirmado_nova";
+            this.confirmado_nova.Size = new System.Drawing.Size(112, 13);
+            this.confirmado_nova.TabIndex = 3;
+            this.confirmado_nova.Text = "Confirmar nova Senha";
             // 
             // btn_atualizar
             // 
@@ -187,34 +213,6 @@
             this.novaSenha.TabIndex = 0;
             this.novaSenha.Text = "Nova Senha";
             // 
-            // confirma_novaSenhaTxt
-            // 
-            this.confirma_novaSenhaTxt.Location = new System.Drawing.Point(192, 41);
-            this.confirma_novaSenhaTxt.Name = "confirma_novaSenhaTxt";
-            this.confirma_novaSenhaTxt.Size = new System.Drawing.Size(100, 20);
-            this.confirma_novaSenhaTxt.TabIndex = 4;
-            this.confirma_novaSenhaTxt.UseSystemPasswordChar = true;
-            // 
-            // confirmado_nova
-            // 
-            this.confirmado_nova.AutoSize = true;
-            this.confirmado_nova.Location = new System.Drawing.Point(59, 47);
-            this.confirmado_nova.Name = "confirmado_nova";
-            this.confirmado_nova.Size = new System.Drawing.Size(112, 13);
-            this.confirmado_nova.TabIndex = 3;
-            this.confirmado_nova.Text = "Confirmar nova Senha";
-            // 
-            // aviso
-            // 
-            this.aviso.AutoSize = true;
-            this.aviso.ForeColor = System.Drawing.Color.Red;
-            this.aviso.Location = new System.Drawing.Point(298, 47);
-            this.aviso.Name = "aviso";
-            this.aviso.Size = new System.Drawing.Size(119, 13);
-            this.aviso.TabIndex = 5;
-            this.aviso.Text = "As senha não conferem";
-            this.aviso.Visible = false;
-            // 
             // Recurprar_senha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,7 +225,6 @@
             this.Style = MetroFramework.MetroColorStyle.Brown;
             this.Tag = "";
             this.Text = "Recuperar Senha";
-            this.Load += new System.EventHandler(this.Recurprar_senha_Load);
             this.painel_recuperar_senha.ResumeLayout(false);
             this.painel_recuperar_senha.PerformLayout();
             this.panel_code.ResumeLayout(false);

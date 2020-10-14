@@ -1,6 +1,7 @@
 ﻿using Correios.CorreiosServiceReference;
 using sistemaHoteleiro.controlers;
 using sistemaHoteleiro.models;
+using sistemaHoteleiro.views.RecursosAdministrativos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,6 +34,62 @@ namespace sistemaHoteleiro.Controllers
             cmd = new SqlCommand();
         }
 
+        public float calcularValorApagar(string numeroDoQuarto, int numeroDeDias)
+        {
+            float valorDoQuarto = 0;
+
+            cmd.Connection = Conectar();
+            cmd.CommandText = @"SELECT valor_do_quarto FROM registrosQuartos WHERE numero_do_quarto=@numDoQuarto";
+            cmd.Parameters.AddWithValue("@numDoQuarto", numeroDoQuarto);
+            SqlDataReader read = cmd.ExecuteReader();
+            if (read.Read())
+            {
+                valorDoQuarto = float.Parse(read[0].ToString());
+                cmd.Dispose();
+                desconectar();
+                if (numeroDeDias != 1)
+                {
+                    float ValorParaPagar = valorDoQuarto * numeroDeDias;
+                    return ValorParaPagar;
+                }
+                else
+                {
+                    return valorDoQuarto;
+                }
+            }
+            return 0;
+        }
+
+        public float calcularValorApagar(string numeroDoQuarto, int numeroDeDias, float desconto)
+        {
+            float valorDoQuarto = 0;
+
+            cmd.Connection = Conectar();
+            cmd.CommandText = @"SELECT valor_do_quarto FROM registrosQuartos WHERE numero_do_quarto=@numDoQuarto";
+            cmd.Parameters.AddWithValue("@numDoQuarto", numeroDoQuarto);
+            SqlDataReader read = cmd.ExecuteReader();
+            if(read.Read())
+            {
+                valorDoQuarto = float.Parse(read[0].ToString());
+                cmd.Dispose();
+                desconectar();
+                if (numeroDeDias != 1)
+                {
+                    float percentual = (float)(desconto / 100.0);
+                    float ValorParaPagar = valorDoQuarto * numeroDeDias;
+                    float ValorFinalParaPagar = ValorParaPagar - (percentual * ValorParaPagar);
+                    return ValorFinalParaPagar;
+                }
+                else
+                {
+                    return valorDoQuarto;
+                }
+            }
+            return 0;
+        }
+
+        
+
         private bool verificarSeCpfExiste(string cpf, string numeroDeQuartos)
         {
             if (Convert.ToInt32(numeroDeQuartos) == 1)
@@ -45,13 +102,14 @@ namespace sistemaHoteleiro.Controllers
                 if (read.Read())
                 {
                     MessageBox.Show("CPF já cadastrado");
+                    cmd.Dispose();
                     Con.desconectar();
                     return false;
                 }
                 else
                 {
-                    MessageBox.Show("Bora!!" + numeroDeQuartos);
                     Con.desconectar();
+                    cmd.Dispose();
                     return true;
                 }
             }
@@ -61,13 +119,22 @@ namespace sistemaHoteleiro.Controllers
             }
         }
 
+
         private bool verificarSeQuartoEstaOcupado(string numeroDeQuarto)
         {
             return true;
         }
 
+     
+
         public bool CadastrarHospede(Hospedes hp)
         {
+
+            if (hp.cnpj == null)
+            {
+                hp.cnpj = "";
+            }
+
             bool respC = verificarSeCpfExiste(hp.cpf, hp.numeroDeQuartos);
             bool respQ = verificarSeQuartoEstaOcupado(hp.numeroDoQuarto);
 
@@ -88,7 +155,6 @@ namespace sistemaHoteleiro.Controllers
                 cmdQuartos = Con.CreatCom();
                 cmdRegistros = Con.CreatCom();
                 Con.Conectar();
-
                 SqlTransaction tran = Con.Transacoes();
 
 
@@ -99,7 +165,7 @@ namespace sistemaHoteleiro.Controllers
                 cmdHospedes.Parameters.AddWithValue("@telefone", hp.tell);
                 cmdHospedes.Parameters.AddWithValue("@celular", hp.cell);
                 cmdHospedes.Parameters.AddWithValue("@cpf", hp.cpf);
-                cmdHospedes.Parameters.AddWithValue("@cnpj", "a");
+                cmdHospedes.Parameters.AddWithValue("@cnpj", hp.cnpj);
                 cmdHospedes.Parameters.AddWithValue("@cep", hp.cep);
                 cmdHospedes.Parameters.AddWithValue("@cidade", hp.cidade);
                 cmdHospedes.Parameters.AddWithValue("@uf", hp.estado);
@@ -146,8 +212,9 @@ namespace sistemaHoteleiro.Controllers
             }
             return false;
         }
-    
-       public bool checkoutHospede(int idQuarto, int idHospede, int numQuarto, string nome)
+       
+
+        public bool checkoutHospede(int idQuarto, int idHospede, int numQuarto, string nome)
        {
             
             
@@ -215,6 +282,53 @@ namespace sistemaHoteleiro.Controllers
                 Con.desconectar();
             }
         }
-       
+        public SqlDataReader PesquisarFuncionario(string cpf)
+        {
+            
+            cmd.Connection = Conectar();
+            cmd.CommandText = @"SELECT * FROM funcionario WHERE cpf=@cpf_f";
+            cmd.Parameters.AddWithValue("@cpf_f", cpf);
+            SqlDataReader read = cmd.ExecuteReader();
+
+            if(read.Read())
+            {
+                cmd.Dispose();
+                Con.desconectar();
+                return read;
+            }
+            MessageBox.Show("Funcionario não cadastrado");
+            cmd.Dispose();
+            Con.desconectar();
+            return null;
+
+        }
+
+        public bool ExcluirFuncionario(string cpf)
+        {
+            cmd.Connection = Con.Conectar();
+            cmd.CommandText = @"DELETE FROM funcionario WHERE cpf=@cpf_fd";
+            cmd.Parameters.AddWithValue("@cpf_fd", cpf);
+            Con.Conectar();
+
+            SqlTransaction tran = Con.Transacoes();
+
+            try
+            {
+                cmd.Transaction = tran;
+                cmd.ExecuteNonQuery();
+                tran.Commit();
+                cmd.Dispose();
+                desconectar();
+                return true;
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Erro" + ex);
+                cmd.Dispose();
+                desconectar();
+                return false;
+            }
+        }
+
     }
 }

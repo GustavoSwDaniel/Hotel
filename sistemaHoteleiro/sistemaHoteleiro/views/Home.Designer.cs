@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.Header = new System.Windows.Forms.Panel();
+            this.hora = new System.Windows.Forms.Label();
+            this.data = new System.Windows.Forms.Label();
             this.btn_voltar = new System.Windows.Forms.Button();
             this.btn_min = new System.Windows.Forms.Button();
             this.btn_exite = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_cargo = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel_buttons = new System.Windows.Forms.Panel();
             this.btn_ListarHospede = new System.Windows.Forms.Button();
@@ -41,8 +45,8 @@
             this.btn_checkOu = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_cadastroH = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lbl_cargo = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel_buttons.SuspendLayout();
@@ -54,12 +58,13 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(1110, 636);
             this.panelPrincipal.TabIndex = 5;
-            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.Transparent;
             this.Header.BackgroundImage = global::sistemaHoteleiro.Properties.Resources.Header;
+            this.Header.Controls.Add(this.hora);
+            this.Header.Controls.Add(this.data);
             this.Header.Controls.Add(this.btn_voltar);
             this.Header.Controls.Add(this.btn_min);
             this.Header.Controls.Add(this.btn_exite);
@@ -68,6 +73,24 @@
             this.Header.Name = "Header";
             this.Header.Size = new System.Drawing.Size(1110, 80);
             this.Header.TabIndex = 4;
+            // 
+            // hora
+            // 
+            this.hora.AutoSize = true;
+            this.hora.Location = new System.Drawing.Point(1044, 51);
+            this.hora.Name = "hora";
+            this.hora.Size = new System.Drawing.Size(49, 13);
+            this.hora.TabIndex = 38;
+            this.hora.Text = "21:05:30";
+            // 
+            // data
+            // 
+            this.data.AutoSize = true;
+            this.data.Location = new System.Drawing.Point(1036, 30);
+            this.data.Name = "data";
+            this.data.Size = new System.Drawing.Size(65, 13);
+            this.data.TabIndex = 37;
+            this.data.Text = "25/09/2020";
             // 
             // btn_voltar
             // 
@@ -116,6 +139,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::sistemaHoteleiro.Properties.Resources.menu;
+            this.panel1.Controls.Add(this.txt_cargo);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel_buttons);
             this.panel1.Controls.Add(this.lbl_cargo);
@@ -124,6 +148,16 @@
             this.panel1.Size = new System.Drawing.Size(169, 747);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txt_cargo
+            // 
+            this.txt_cargo.AutoSize = true;
+            this.txt_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_cargo.ForeColor = System.Drawing.Color.White;
+            this.txt_cargo.Location = new System.Drawing.Point(67, 179);
+            this.txt_cargo.Name = "txt_cargo";
+            this.txt_cargo.Size = new System.Drawing.Size(0, 15);
+            this.txt_cargo.TabIndex = 7;
             // 
             // panel3
             // 
@@ -140,7 +174,6 @@
             this.panel_buttons.Controls.Add(this.btn_checkOu);
             this.panel_buttons.Controls.Add(this.btn_logout);
             this.panel_buttons.Controls.Add(this.btn_cadastroH);
-            this.panel_buttons.Controls.Add(this.button1);
             this.panel_buttons.Location = new System.Drawing.Point(11, 238);
             this.panel_buttons.Name = "panel_buttons";
             this.panel_buttons.Size = new System.Drawing.Size(148, 463);
@@ -153,7 +186,7 @@
             this.btn_ListarHospede.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ListarHospede.ForeColor = System.Drawing.Color.White;
             this.btn_ListarHospede.Image = global::sistemaHoteleiro.Properties.Resources.list;
-            this.btn_ListarHospede.Location = new System.Drawing.Point(2, 208);
+            this.btn_ListarHospede.Location = new System.Drawing.Point(2, 127);
             this.btn_ListarHospede.Name = "btn_ListarHospede";
             this.btn_ListarHospede.Size = new System.Drawing.Size(143, 56);
             this.btn_ListarHospede.TabIndex = 8;
@@ -171,7 +204,7 @@
             this.btn_Admin.ForeColor = System.Drawing.Color.White;
             this.btn_Admin.Image = global::sistemaHoteleiro.Properties.Resources.administracao_2;
             this.btn_Admin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Admin.Location = new System.Drawing.Point(2, 270);
+            this.btn_Admin.Location = new System.Drawing.Point(2, 189);
             this.btn_Admin.Name = "btn_Admin";
             this.btn_Admin.Size = new System.Drawing.Size(143, 65);
             this.btn_Admin.TabIndex = 7;
@@ -230,32 +263,21 @@
             this.btn_cadastroH.UseVisualStyleBackColor = false;
             this.btn_cadastroH.Click += new System.EventHandler(this.btn_cadastroH_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::sistemaHoteleiro.Properties.Resources.Cadastro_empresa;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(2, 137);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 65);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "   Cadastrar Empresa";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // lbl_cargo
             // 
             this.lbl_cargo.AutoSize = true;
             this.lbl_cargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cargo.ForeColor = System.Drawing.Color.White;
-            this.lbl_cargo.Location = new System.Drawing.Point(17, 178);
+            this.lbl_cargo.Location = new System.Drawing.Point(15, 179);
             this.lbl_cargo.Name = "lbl_cargo";
             this.lbl_cargo.Size = new System.Drawing.Size(43, 15);
             this.lbl_cargo.TabIndex = 1;
             this.lbl_cargo.Text = "Cargo:";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Hotel
             // 
@@ -270,6 +292,7 @@
             this.Name = "Hotel";
             this.Style = MetroFramework.MetroColorStyle.Brown;
             this.Header.ResumeLayout(false);
+            this.Header.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel_buttons.ResumeLayout(false);
@@ -283,7 +306,6 @@
         private System.Windows.Forms.Label lbl_cargo;
         private System.Windows.Forms.Button btn_cadastroH;
         private System.Windows.Forms.Button btn_logout;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_checkOu;
         private System.Windows.Forms.Panel panel_buttons;
         private System.Windows.Forms.Panel Header;
@@ -294,5 +316,9 @@
         private System.Windows.Forms.Button btn_voltar;
         private System.Windows.Forms.Button btn_Admin;
         private System.Windows.Forms.Button btn_ListarHospede;
+        private System.Windows.Forms.Label hora;
+        private System.Windows.Forms.Label data;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label txt_cargo;
     }
 }

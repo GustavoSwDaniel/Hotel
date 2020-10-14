@@ -139,6 +139,7 @@
             this.mtxt_cpf.Size = new System.Drawing.Size(100, 20);
             this.mtxt_cpf.TabIndex = 7;
             this.mtxt_cpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.mtxt_cpf.Leave += new System.EventHandler(this.mtxt_cpf_Leave);
             // 
             // mtxt_telefone
             // 
@@ -362,6 +363,7 @@
             this.btn_limpar.TabIndex = 16;
             this.btn_limpar.Text = "Limpar";
             this.btn_limpar.UseVisualStyleBackColor = false;
+            this.btn_limpar.Click += new System.EventHandler(this.btn_limpar_Click);
             // 
             // btn_cadastrar
             // 
@@ -461,7 +463,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CadastroFuncionario";
             this.Text = "CadastroFuncionario";
-            this.Load += new System.EventHandler(this.CadastroFuncionario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

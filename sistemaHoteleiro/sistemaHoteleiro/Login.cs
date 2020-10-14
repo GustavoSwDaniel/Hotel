@@ -1,4 +1,5 @@
 ﻿using sistemaHoteleiro.controlers;
+using sistemaHoteleiro.Dal;
 using sistemaHoteleiro.models;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace sistemaHoteleiro
 
         private SqlCommand cmd { get; set; }
 
+        int cont = 0;
 
         public Login()
         {
@@ -35,34 +37,41 @@ namespace sistemaHoteleiro
             try
             {
                 cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                Con.desconectar();
             }
             catch(SqlException ex)
             {
                 MessageBox.Show("Error" + ex);
+                cmd.Dispose();
+                Con.desconectar();
             }
         }
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Login_Click(object sender, EventArgs e)
+        private async void btn_Login_Click(object sender, EventArgs e)
         {
             Controle controle = new Controle();
             controle.acessar(User_text.Text, passworld_text.Text);
-            if(controle.tem)
+            LoginDaoComandos lc = new LoginDaoComandos();
+            string privilegio =lc.privilegio(User_text.Text);
+          
+            if (controle.tem)
             {
-                Hotel formPrinc = new Hotel();
-                Hide();
-                formPrinc.ShowDialog();
+                if (privilegio != null)
+                {
+                    button1.Visible = false;
+                    circularProgressBar1.Visible = true;
+                    progressBar();
+                    timer2.Start();
 
+                    await Task.Delay(3800);
+                    
+                    Hotel formPrinc = new Hotel();
+                    formPrinc.cargo = privilegio;
+                    Hide();
+                    formPrinc.ShowDialog();
+                }
+                
             }
             else
             {
@@ -71,14 +80,7 @@ namespace sistemaHoteleiro
                 passworld_text.Clear();
                 User_text.Focus();
             }
-        }
-
-        
-
-        private void lbl_esqueci_senha_Click(object sender, EventArgs e)
-        {
-
-            
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,6 +88,60 @@ namespace sistemaHoteleiro
             Recurprar_senha Recurprar_senha = new Recurprar_senha();
             Recurprar_senha.Show();
             this.Hide();
+
+        }
+
+        private void btn_exite_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_min_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 1) this.Opacity += 0.05;
+            cont += 1;
+            if(cont == 100)
+            {
+                timer1.Stop();
+            }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.Opacity = 0.0;
+            timer1.Start();
+        }
+
+        private void progressBar()
+        {
+            circularProgressBar1.Value = 0;
+            circularProgressBar1.Minimum = 0;
+            circularProgressBar1.Maximum = 100;
+        }
+
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            circularProgressBar1.Value += 1;
+            circularProgressBar1.Text = circularProgressBar1.Value.ToString();
+            if (circularProgressBar1.Value == 100)
+            {
+                timer2.Stop();
+            }
+        }
+
+        private void circularProgressBar1_Click(object sender, EventArgs e)
+        {
 
         }
     }

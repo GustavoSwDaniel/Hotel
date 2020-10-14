@@ -39,15 +39,19 @@ namespace sistemaHoteleiro.views
 
             try
             {
+
+                MessageBox.Show(mskCheckIn.Text + " " + mskCheckInOut.Text);
                 txt_nome.Text = dataGridQuartos.CurrentRow.Cells[3].Value.ToString();
                 txtCpf.Text = dataGridQuartos.CurrentRow.Cells[4].Value.ToString();
                 mskCheckIn.Text = dataGridQuartos.CurrentRow.Cells[8].Value.ToString();
                 mskCheckInOut.Text = dataGridQuartos.CurrentRow.Cells[9].Value.ToString();
                 lbl_statusQ.Text = dataGridQuartos.CurrentRow.Cells[5].Value.ToString();
+                //TimeSpan diasHospededados = Convert.ToDateTime(mskCheckInOut.Text) - Convert.ToDateTime(mskCheckIn.Text);
+                int totalDias = (DateTime.Parse(mskCheckInOut.Text).Subtract(DateTime.Parse(mskCheckIn.Text))).Days;
 
-                TimeSpan diasHospededados = Convert.ToDateTime(mskCheckIn.Text) - Convert.ToDateTime(mskCheckInOut.Text);
+                totalDias = totalDias * -1;
 
-                int totalDias = diasHospededados.Days;
+                //int totalDias = diasHospededados.Days;
                 txt_num.Text = totalDias.ToString();
             }
             catch (System.Exception ex)
@@ -59,6 +63,11 @@ namespace sistemaHoteleiro.views
        
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_valor_Click(object sender, EventArgs e)
         {
 
         }

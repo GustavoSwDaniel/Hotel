@@ -66,7 +66,7 @@ namespace sistemaHoteleiro.views
                 mskCheckInOut.Text = dataGridQuartos.CurrentRow.Cells[9].Value.ToString();
                 lbl_statusQ.Text = dataGridQuartos.CurrentRow.Cells[5].Value.ToString();
 
-                TimeSpan diasHospededados = Convert.ToDateTime(mskCheckIn.Text) - Convert.ToDateTime(mskCheckInOut.Text);
+                TimeSpan diasHospededados =  Convert.ToDateTime(mskCheckInOut.Text) - Convert.ToDateTime(mskCheckIn.Text);
 
                 int totalDias = diasHospededados.Days;
                 txt_num.Text = totalDias.ToString();
@@ -78,20 +78,35 @@ namespace sistemaHoteleiro.views
               
             
         }
-
-        private void pnl_CheckOut_Paint(object sender, PaintEventArgs e)
+  
+        private float calcular(string num_quarto, int totalDias)
         {
+            HospedeDAO hd = new HospedeDAO();
 
+
+
+            if (String.IsNullOrEmpty(txt_desconto.Text))
+            {
+                float total = hd.calcularValorApagar(num_quarto, totalDias);
+                return total;
+            }
+            else
+            {
+                MessageBox.Show("a");
+                float total = hd.calcularValorApagar(num_quarto, totalDias, float.Parse(txt_desconto.Text));
+                MessageBox.Show(total.ToString());
+                return total;
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnCalcular_Click(object sender, EventArgs e)
         {
-            
-        }
+            TimeSpan diasHospededados = Convert.ToDateTime(mskCheckInOut.Text) - Convert.ToDateTime(mskCheckIn.Text);
+            int totalDias = diasHospededados.Days;
 
-        private void title_cadastro_Click(object sender, EventArgs e)
-        {
-
+            string num_quarto = dataGridQuartos.CurrentRow.Cells[2].Value.ToString();
+            float total = calcular(num_quarto, totalDias);
+            lbl_valor.Text = total.ToString();
         }
     }
 }

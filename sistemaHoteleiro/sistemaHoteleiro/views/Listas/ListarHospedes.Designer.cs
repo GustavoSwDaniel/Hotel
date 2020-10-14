@@ -32,10 +32,6 @@
             this.title_cadastro = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dataGridHospede = new System.Windows.Forms.DataGridView();
-            this.hospedeList = new sistemaHoteleiro.hospedeList();
-            this.hospedesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hospedesTableAdapter = new sistemaHoteleiro.hospedeListTableAdapters.hospedesTableAdapter();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.hospedeidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +46,13 @@
             this.datanascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataentradaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datasaidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.hospedesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hospedeList = new sistemaHoteleiro.hospedeList();
+            this.hospedesTableAdapter = new sistemaHoteleiro.hospedeListTableAdapters.hospedesTableAdapter();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHospede)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hospedeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hospedesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hospedeList)).BeginInit();
             this.SuspendLayout();
             // 
             // title_cadastro
@@ -62,9 +61,9 @@
             this.title_cadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title_cadastro.Location = new System.Drawing.Point(379, 20);
             this.title_cadastro.Name = "title_cadastro";
-            this.title_cadastro.Size = new System.Drawing.Size(324, 30);
+            this.title_cadastro.Size = new System.Drawing.Size(325, 30);
             this.title_cadastro.TabIndex = 6;
-            this.title_cadastro.Text = "Alualização de Hospedes";
+            this.title_cadastro.Text = "Atualização de Hospedes";
             // 
             // btnSalvar
             // 
@@ -104,31 +103,6 @@
             this.dataGridHospede.Size = new System.Drawing.Size(1070, 246);
             this.dataGridHospede.TabIndex = 0;
             this.dataGridHospede.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridHospede_CellClick);
-            this.dataGridHospede.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridHospede_KeyDown);
-            // 
-            // hospedeList
-            // 
-            this.hospedeList.DataSetName = "hospedeList";
-            this.hospedeList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hospedesBindingSource
-            // 
-            this.hospedesBindingSource.DataMember = "hospedes";
-            this.hospedesBindingSource.DataSource = this.hospedeList;
-            // 
-            // hospedesTableAdapter
-            // 
-            this.hospedesTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Location = new System.Drawing.Point(521, 447);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnAtualizar.TabIndex = 8;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // hospedeidDataGridViewTextBoxColumn
             // 
@@ -239,21 +213,36 @@
             this.datasaidaDataGridViewTextBoxColumn.ReadOnly = true;
             this.datasaidaDataGridViewTextBoxColumn.Width = 85;
             // 
-            // button1
+            // hospedesBindingSource
             // 
-            this.button1.Location = new System.Drawing.Point(-15, -15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.hospedesBindingSource.DataMember = "hospedes";
+            this.hospedesBindingSource.DataSource = this.hospedeList;
+            // 
+            // hospedeList
+            // 
+            this.hospedeList.DataSetName = "hospedeList";
+            this.hospedeList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // hospedesTableAdapter
+            // 
+            this.hospedesTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(521, 447);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnAtualizar.TabIndex = 8;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // ListarHospedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1094, 482);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.title_cadastro);
@@ -263,8 +252,8 @@
             this.Text = "ListarHospedes";
             this.Load += new System.EventHandler(this.ListarHospedes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHospede)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hospedeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hospedesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hospedeList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,6 +281,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datanascimentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataentradaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datasaidaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
     }
 }

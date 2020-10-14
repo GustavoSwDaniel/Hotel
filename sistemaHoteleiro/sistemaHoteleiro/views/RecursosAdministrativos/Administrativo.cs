@@ -18,11 +18,6 @@ namespace sistemaHoteleiro.views
             InitializeComponent();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         public void AbrirFormaInPainel(object Formi)
         {
             if (this.panel3.Controls.Count > 0)
@@ -47,6 +42,11 @@ namespace sistemaHoteleiro.views
         private void btn_funcionario_Click(object sender, EventArgs e)
         {
             AbrirFormaInPainel(new AdministrasaoDeFuncionarios());
+        }
+
+        private void btnExcluirFunc_Click(object sender, EventArgs e)
+        {
+            AbrirFormaInPainel(new ExcluirFuncionario());
         }
     }
 }
